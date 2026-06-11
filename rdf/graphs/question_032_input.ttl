@@ -1,0 +1,177 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q032 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar pré-sal, pós-sal e camada de sal?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q032 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_pos_sal_ba2609 a geocore:AmountOfRock ;
+    rdfs:label """pós-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q032 pq:mentionsEntity ent:e_pos_sal_ba2609 .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q032 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_tais_3e3c05 a geocore:GeologicalAge ;
+    rdfs:label """Tais""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q032 pq:mentionsEntity ent:e_tais_3e3c05 .
+
+res:path_q032_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q032 pq:hasReasoningStep res:path_q032_step_1 .
+
+res:path_q032_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pos_sal_ba2609 .
+q:q032 pq:hasReasoningStep res:path_q032_step_2 .
+
+res:path_q032_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q032 pq:hasReasoningStep res:path_q032_step_3 .
+
+res:path_q032_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_tais_3e3c05 .
+q:q032 pq:hasReasoningStep res:path_q032_step_4 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q032_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q032 pq:hasReasoningStep res:path_q032_step_5 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q032_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q032 pq:hasReasoningStep res:path_q032_step_6 .
+
+ent:e_retencao_de_hidrocarbonetos_1270f2 a geocore:GeologicalProcess ;
+    rdfs:label """retenção de hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q032_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_retencao_de_hidrocarbonetos_1270f2 .
+q:q032 pq:hasReasoningStep res:path_q032_step_7 .
+
+res:path_q032_step_1 pq:nextStep res:path_q032_step_2 .
+
+res:path_q032_step_2 pq:nextStep res:path_q032_step_3 .
+
+res:path_q032_step_3 pq:nextStep res:path_q032_step_4 .
+
+res:path_q032_step_4 pq:nextStep res:path_q032_step_5 .
+
+res:path_q032_step_5 pq:nextStep res:path_q032_step_6 .
+
+res:path_q032_step_6 pq:nextStep res:path_q032_step_7 .
+
+q:q032 pq:hasReasoningStart res:path_q032_step_1 ;
+    pq:hasReasoningEnd res:path_q032_step_7 .
+
+res:relation_q032_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_pos_sal_ba2609 .
+ent:e_pre_sal_535e0b rel:precedes_or_underlies ent:e_pos_sal_ba2609 .
+q:q032 pq:hasRelation res:relation_q032_1 .
+
+res:relation_q032_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pos_sal_ba2609 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pos_sal_ba2609 rel:indicates ent:e_camada_de_sal_18df21 .
+q:q032 pq:hasRelation res:relation_q032_2 .
+
+res:relation_q032_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_tais_3e3c05 .
+ent:e_camada_de_sal_18df21 rel:supports ent:e_tais_3e3c05 .
+q:q032 pq:hasRelation res:relation_q032_3 .
+
+res:relation_q032_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_tais_3e3c05 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_tais_3e3c05 rel:supports ent:e_baixa_permeabilidade_68d997 .
+q:q032 pq:hasRelation res:relation_q032_4 .
+
+res:relation_q032_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:supports ent:e_selo_geologico_1ec974 .
+q:q032 pq:hasRelation res:relation_q032_5 .
+
+res:relation_q032_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_selo_geologico_1ec974 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_retencao_de_hidrocarbonetos_1270f2 .
+ent:e_selo_geologico_1ec974 rel:supports ent:e_retencao_de_hidrocarbonetos_1270f2 .
+q:q032 pq:hasRelation res:relation_q032_6 .
+
+src:s_q032_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo-do-pre-sal""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q032_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/pre-sal-bacia-de-santos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q032_1 a pq:Evidence ;
+    pq:evidenceText """O que se chama de pré-sal são as rochas sedimentares que existem abaixo da uma camada de sal com até 2.000 m de espessura, que se estende por uma grande extensão.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo do Pré-Sal | SGB""" ;
+    pq:fromSource src:s_q032_1 .
+q:q032 pq:hasEvidence evid:ev_q032_1 .
+evid:ev_q032_1 pq:supportsQuestion q:q032 .
+
+evid:ev_q032_2 a pq:Evidence ;
+    pq:evidenceText """O prefixo pré-, portanto, refere-se ao tempo, não ao espaço.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo do Pré-Sal | SGB""" ;
+    pq:fromSource src:s_q032_2 .
+q:q032 pq:hasEvidence evid:ev_q032_2 .
+evid:ev_q032_2 pq:supportsQuestion q:q032 .
+
+evid:ev_q032_3 a pq:Evidence ;
+    pq:evidenceText """Tais formações encontram-se a distâncias de cerca de 300 quilômetros da costa brasileira, em profundidades de aproximadamente 5 mil metros, sendo 2 mil de lâmina d’água, mil metros de sedimentos e outros 2 mil de sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal Bacia de Santos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q032_2 .
+q:q032 pq:hasEvidence evid:ev_q032_3 .
+evid:ev_q032_3 pq:supportsQuestion q:q032 .

@@ -1,0 +1,214 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q006 a pq:Question ;
+    pq:hasQuestionText """Que relação entre composição, propriedade e função geológica pode ser inferida a partir de Bacia de Santos?""" ;
+    pq:hasInferenceType """composicional_petrofisica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q006 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q006 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_formacao_barra_velha_5a0da3 a geocore:GeologicalObject ;
+    rdfs:label """Formação Barra Velha""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q006 pq:mentionsEntity ent:e_formacao_barra_velha_5a0da3 .
+
+ent:e_formacao_itapema_ca714d a geocore:GeologicalObject ;
+    rdfs:label """Formação Itapema""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q006 pq:mentionsEntity ent:e_formacao_itapema_ca714d .
+
+ent:e_evaporitos_86b63a a geocore:AmountOfRock ;
+    rdfs:label """evaporitos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q006 pq:mentionsEntity ent:e_evaporitos_86b63a .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q006 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q006 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_carbonaticas_8d4c1d a geocore:AmountOfRock ;
+    rdfs:label """carbonáticas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q006 pq:mentionsEntity ent:e_carbonaticas_8d4c1d .
+
+ent:e_coquinas_f4ac89 a geocore:AmountOfRock ;
+    rdfs:label """coquinas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q006 pq:mentionsEntity ent:e_coquinas_f4ac89 .
+
+res:path_q006_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q006 pq:hasReasoningStep res:path_q006_step_1 .
+
+res:path_q006_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q006 pq:hasReasoningStep res:path_q006_step_2 .
+
+res:path_q006_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_barra_velha_5a0da3 .
+q:q006 pq:hasReasoningStep res:path_q006_step_3 .
+
+res:path_q006_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_itapema_ca714d .
+q:q006 pq:hasReasoningStep res:path_q006_step_4 .
+
+res:path_q006_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evaporitos_86b63a .
+q:q006 pq:hasReasoningStep res:path_q006_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q006_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q006 pq:hasReasoningStep res:path_q006_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q006_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q006 pq:hasReasoningStep res:path_q006_step_7 .
+
+res:path_q006_step_1 pq:nextStep res:path_q006_step_2 .
+
+res:path_q006_step_2 pq:nextStep res:path_q006_step_3 .
+
+res:path_q006_step_3 pq:nextStep res:path_q006_step_4 .
+
+res:path_q006_step_4 pq:nextStep res:path_q006_step_5 .
+
+res:path_q006_step_5 pq:nextStep res:path_q006_step_6 .
+
+res:path_q006_step_6 pq:nextStep res:path_q006_step_7 .
+
+q:q006 pq:hasReasoningStart res:path_q006_step_1 ;
+    pq:hasReasoningEnd res:path_q006_step_7 .
+
+res:relation_q006_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """is_composed_of_or_related_to""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_de_santos_564a2f rel:is_composed_of_or_related_to ent:e_pre_sal_535e0b .
+q:q006 pq:hasRelation res:relation_q006_1 .
+
+res:relation_q006_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """has_property""" ;
+    pq:relationTail ent:e_formacao_barra_velha_5a0da3 .
+ent:e_pre_sal_535e0b rel:has_property ent:e_formacao_barra_velha_5a0da3 .
+q:q006 pq:hasRelation res:relation_q006_2 .
+
+res:relation_q006_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_barra_velha_5a0da3 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_formacao_itapema_ca714d .
+ent:e_formacao_barra_velha_5a0da3 rel:supports_function ent:e_formacao_itapema_ca714d .
+q:q006 pq:hasRelation res:relation_q006_3 .
+
+res:relation_q006_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_itapema_ca714d ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_evaporitos_86b63a .
+ent:e_formacao_itapema_ca714d rel:supports_function ent:e_evaporitos_86b63a .
+q:q006 pq:hasRelation res:relation_q006_4 .
+
+res:relation_q006_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evaporitos_86b63a ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_evaporitos_86b63a rel:supports_function ent:e_baixa_permeabilidade_68d997 .
+q:q006 pq:hasRelation res:relation_q006_5 .
+
+res:relation_q006_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:supports_function ent:e_selo_geologico_1ec974 .
+q:q006 pq:hasRelation res:relation_q006_6 .
+
+src:s_q006_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/16""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q006_2 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q006_1 a pq:Evidence ;
+    pq:evidenceText """Campos gigantes e supergigantes de alta produtividade na seção Pré-sal da Bacia de Santos são constituídos predominantemente por fácies carbonáticas lacustres e selados por espessa camada de evaporitos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q006_1 .
+q:q006 pq:hasEvidence evid:ev_q006_1 .
+evid:ev_q006_1 pq:supportsQuestion q:q006 .
+
+evid:ev_q006_2 a pq:Evidence ;
+    pq:evidenceText """Depósitos bioclásticos de moluscos bivalves do Barremiano/Aptiano, denominados coquinas do andar local Jiquiá, ocorrem sobre blocos altos falhados, formados durante a tectônica rifte, em morfologias herdadas do embasamento, intercalados com fácies ricas em matéria orgânica em camadas conformantes contínuas nos baixos adjacentes, em ambiente de água doce a salobra.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q006_2 .
+q:q006 pq:hasEvidence evid:ev_q006_2 .
+evid:ev_q006_2 pq:supportsQuestion q:q006 .
+
+evid:ev_q006_3 a pq:Evidence ;
+    pq:evidenceText """As rochas carbonáticas do Aptiano, andar local Alagoas, são depósitos autóctones bioquímicos representados por laminitos e arbustos fasciculares (estromatolitos) que se depositaram em condições alcalinas, sobre altos herdados do embasamento e em contexto de subsidência térmica flexural com menor influência de falhas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q006_2 .
+q:q006 pq:hasEvidence evid:ev_q006_3 .
+evid:ev_q006_3 pq:supportsQuestion q:q006 .
+
+evid:ev_q006_4 a pq:Evidence ;
+    pq:evidenceText """Os reservatórios são rochas carbonáticas de origem lacustre (idade aptiana), depositadas durante o rifteamento oblíquo de abertura da Bacia de Santos e compreende às formações Itapema (Sequência K38) e Barra Velha (Sequências K44 e K46/K48).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q006_2 .
+q:q006 pq:hasEvidence evid:ev_q006_4 .
+evid:ev_q006_4 pq:supportsQuestion q:q006 .
+
+evid:ev_q006_5 a pq:Evidence ;
+    pq:evidenceText """Nos altos estruturais, a Formação Itapema é composta majoritariamente por rudstones e grainstones de bivalves e a Formação Barra Velha, por estromatólitos, grainstones intraclásticos e esferulititos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q006_2 .
+q:q006 pq:hasEvidence evid:ev_q006_5 .
+evid:ev_q006_5 pq:supportsQuestion q:q006 .

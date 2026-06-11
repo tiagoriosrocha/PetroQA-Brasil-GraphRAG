@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q126 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar pré-sal com camada de sal?""" ;
+    pq:hasInferenceType """espacial""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q126 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q126 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q126 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q126 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_espirito_0d6498 a geocore:GeologicalObject ;
+    rdfs:label """Espírito""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q126 pq:mentionsEntity ent:e_espirito_0d6498 .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q126 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_santos_f3e301 a geocore:GeologicalObject ;
+    rdfs:label """Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q126 pq:mentionsEntity ent:e_santos_f3e301 .
+
+ent:e_petrobras_e82594 a geocore:GeologicalObject ;
+    rdfs:label """Petrobrás""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q126 pq:mentionsEntity ent:e_petrobras_e82594 .
+
+ent:e_espirito_santo_3f46ba a geocore:GeologicalObject ;
+    rdfs:label """Espírito Santo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q126 pq:mentionsEntity ent:e_espirito_santo_3f46ba .
+
+res:path_q126_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q126 pq:hasReasoningStep res:path_q126_step_1 .
+
+res:path_q126_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q126 pq:hasReasoningStep res:path_q126_step_2 .
+
+res:path_q126_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q126 pq:hasReasoningStep res:path_q126_step_3 .
+
+res:path_q126_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q126 pq:hasReasoningStep res:path_q126_step_4 .
+
+res:path_q126_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_espirito_0d6498 .
+q:q126 pq:hasReasoningStep res:path_q126_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q126_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q126 pq:hasReasoningStep res:path_q126_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q126_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q126 pq:hasReasoningStep res:path_q126_step_7 .
+
+res:path_q126_step_1 pq:nextStep res:path_q126_step_2 .
+
+res:path_q126_step_2 pq:nextStep res:path_q126_step_3 .
+
+res:path_q126_step_3 pq:nextStep res:path_q126_step_4 .
+
+res:path_q126_step_4 pq:nextStep res:path_q126_step_5 .
+
+res:path_q126_step_5 pq:nextStep res:path_q126_step_6 .
+
+res:path_q126_step_6 pq:nextStep res:path_q126_step_7 .
+
+q:q126 pq:hasReasoningStart res:path_q126_step_1 ;
+    pq:hasReasoningEnd res:path_q126_step_7 .
+
+res:relation_q126_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pre_sal_535e0b rel:is_related_to ent:e_camada_de_sal_18df21 .
+q:q126 pq:hasRelation res:relation_q126_1 .
+
+res:relation_q126_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_camada_de_sal_18df21 rel:supports ent:e_petroleo_9aa632 .
+q:q126 pq:hasRelation res:relation_q126_2 .
+
+res:relation_q126_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:indicates ent:e_oleo_3c92fc .
+q:q126 pq:hasRelation res:relation_q126_3 .
+
+res:relation_q126_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_espirito_0d6498 .
+ent:e_oleo_3c92fc rel:indicates ent:e_espirito_0d6498 .
+q:q126 pq:hasRelation res:relation_q126_4 .
+
+res:relation_q126_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_espirito_0d6498 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_espirito_0d6498 rel:indicates ent:e_baixa_permeabilidade_68d997 .
+q:q126 pq:hasRelation res:relation_q126_5 .
+
+res:relation_q126_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:indicates ent:e_selo_geologico_1ec974 .
+q:q126 pq:hasRelation res:relation_q126_6 .
+
+src:s_q126_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Petr%C3%B3leo""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q126_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/pre-sal-bacia-de-santos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q126_1 a pq:Evidence ;
+    pq:evidenceText """Em 2007 a Petrobrás anunciou a descoberta de petróleo na camada denominada pré-sal, que posteriormente verificou-se ser um grande campo petrolífero, estendendo-se ao longo de 800 km na costa brasileira, do estado do Espírito Santo ao de Santa Catarina, abaixo de espessa camada de sal (rocha salina) e englobando as bacias sedimentares do Espírito Santo, de Campos e de Santos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q126_1 .
+q:q126 pq:hasEvidence evid:ev_q126_1 .
+evid:ev_q126_1 pq:supportsQuestion q:q126 .
+
+evid:ev_q126_2 a pq:Evidence ;
+    pq:evidenceText """O pré-sal é uma formação rochosa localizada no subsolo da costa brasileira, que se estende entre os estados de Santa Catarina e Espírito Santo, atingindo uma área de cerca de 800 quilômetros de extensão por 200 quilômetros de largura.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal Bacia de Santos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q126_2 .
+q:q126 pq:hasEvidence evid:ev_q126_2 .
+evid:ev_q126_2 pq:supportsQuestion q:q126 .

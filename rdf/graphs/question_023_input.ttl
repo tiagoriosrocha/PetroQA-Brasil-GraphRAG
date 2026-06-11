@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q023 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar Bacia de Santos com pré-sal?""" ;
+    pq:hasInferenceType """espacial""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q023 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q023 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q023 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q023 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q023 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q023 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q023 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_gas_7b02d0 a geocore:EarthFluid ;
+    rdfs:label """gás""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q023 pq:mentionsEntity ent:e_gas_7b02d0 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q023 pq:mentionsEntity ent:e_bacia_4de25b .
+
+res:path_q023_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q023 pq:hasReasoningStep res:path_q023_step_1 .
+
+res:path_q023_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q023 pq:hasReasoningStep res:path_q023_step_2 .
+
+res:path_q023_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q023 pq:hasReasoningStep res:path_q023_step_3 .
+
+res:path_q023_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q023 pq:hasReasoningStep res:path_q023_step_4 .
+
+res:path_q023_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q023 pq:hasReasoningStep res:path_q023_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q023_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q023 pq:hasReasoningStep res:path_q023_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q023_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q023 pq:hasReasoningStep res:path_q023_step_7 .
+
+res:path_q023_step_1 pq:nextStep res:path_q023_step_2 .
+
+res:path_q023_step_2 pq:nextStep res:path_q023_step_3 .
+
+res:path_q023_step_3 pq:nextStep res:path_q023_step_4 .
+
+res:path_q023_step_4 pq:nextStep res:path_q023_step_5 .
+
+res:path_q023_step_5 pq:nextStep res:path_q023_step_6 .
+
+res:path_q023_step_6 pq:nextStep res:path_q023_step_7 .
+
+q:q023 pq:hasReasoningStart res:path_q023_step_1 ;
+    pq:hasReasoningEnd res:path_q023_step_7 .
+
+res:relation_q023_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_de_santos_564a2f rel:is_related_to ent:e_pre_sal_535e0b .
+q:q023 pq:hasRelation res:relation_q023_1 .
+
+res:relation_q023_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pre_sal_535e0b rel:supports ent:e_camada_de_sal_18df21 .
+q:q023 pq:hasRelation res:relation_q023_2 .
+
+res:relation_q023_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_camada_de_sal_18df21 rel:indicates ent:e_reservatorio_5ab1e2 .
+q:q023 pq:hasRelation res:relation_q023_3 .
+
+res:relation_q023_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:indicates ent:e_reservatorios_carbonaticos_b1962a .
+q:q023 pq:hasRelation res:relation_q023_4 .
+
+res:relation_q023_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_reservatorios_carbonaticos_b1962a rel:indicates ent:e_baixa_permeabilidade_68d997 .
+q:q023 pq:hasRelation res:relation_q023_5 .
+
+res:relation_q023_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:indicates ent:e_selo_geologico_1ec974 .
+q:q023 pq:hasRelation res:relation_q023_6 .
+
+src:s_q023_1 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/quem-somos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q023_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/pre-sal-bacia-de-santos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q023_1 a pq:Evidence ;
+    pq:evidenceText """Em uma região de águas ultraprofundas, ocorre o desenvolvimento de reservatórios carbonáticos abaixo de uma camada de sal com até dois quilômetros de espessura, conhecida como pré-sal, caracterizando uma das maiores províncias de petróleo do mundo, apresentando acumulações de óleo pesado, óleo leve e gás não associado.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Quem Somos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q023_1 .
+q:q023 pq:hasEvidence evid:ev_q023_1 .
+evid:ev_q023_1 pq:supportsQuestion q:q023 .
+
+evid:ev_q023_2 a pq:Evidence ;
+    pq:evidenceText """Tais formações encontram-se a distâncias de cerca de 300 quilômetros da costa brasileira, em profundidades de aproximadamente 5 mil metros, sendo 2 mil de lâmina d’água, mil metros de sedimentos e outros 2 mil de sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal Bacia de Santos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q023_2 .
+q:q023 pq:hasEvidence evid:ev_q023_2 .
+evid:ev_q023_2 pq:supportsQuestion q:q023 .

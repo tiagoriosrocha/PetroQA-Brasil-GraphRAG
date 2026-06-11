@@ -1,0 +1,185 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q147 a pq:Question ;
+    pq:hasQuestionText """Que interpretação estrutural surge ao relacionar selo com trapa?""" ;
+    pq:hasInferenceType """estrutural""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_selo_1621cc a geocore:GeologicalObject ;
+    rdfs:label """selo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q147 pq:mentionsEntity ent:e_selo_1621cc .
+
+ent:e_trapa_0e6d2e a geocore:GeologicalObject ;
+    rdfs:label """trapa""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q147 pq:mentionsEntity ent:e_trapa_0e6d2e .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q147 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalStructure ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q147 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q147 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q147 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_armadilhas_cb73cb a geocore:GeologicalStructure ;
+    rdfs:label """Armadilhas""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q147 pq:mentionsEntity ent:e_armadilhas_cb73cb .
+
+ent:e_isso_436208 a geocore:GeologicalStructure ;
+    rdfs:label """Isso""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q147 pq:mentionsEntity ent:e_isso_436208 .
+
+res:path_q147_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_1621cc .
+q:q147 pq:hasReasoningStep res:path_q147_step_1 .
+
+res:path_q147_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_trapa_0e6d2e .
+q:q147 pq:hasReasoningStep res:path_q147_step_2 .
+
+res:path_q147_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q147 pq:hasReasoningStep res:path_q147_step_3 .
+
+res:path_q147_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q147 pq:hasReasoningStep res:path_q147_step_4 .
+
+res:path_q147_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q147 pq:hasReasoningStep res:path_q147_step_5 .
+
+ent:e_estrutura_geologica_87248f a geocore:GeologicalStructure ;
+    rdfs:label """estrutura geológica""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q147_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estrutura_geologica_87248f .
+q:q147 pq:hasReasoningStep res:path_q147_step_6 .
+
+ent:e_controle_estrutural_902029 a geocore:GeologicalStructure ;
+    rdfs:label """controle estrutural""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q147_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_controle_estrutural_902029 .
+q:q147 pq:hasReasoningStep res:path_q147_step_7 .
+
+res:path_q147_step_1 pq:nextStep res:path_q147_step_2 .
+
+res:path_q147_step_2 pq:nextStep res:path_q147_step_3 .
+
+res:path_q147_step_3 pq:nextStep res:path_q147_step_4 .
+
+res:path_q147_step_4 pq:nextStep res:path_q147_step_5 .
+
+res:path_q147_step_5 pq:nextStep res:path_q147_step_6 .
+
+res:path_q147_step_6 pq:nextStep res:path_q147_step_7 .
+
+q:q147 pq:hasReasoningStart res:path_q147_step_1 ;
+    pq:hasReasoningEnd res:path_q147_step_7 .
+
+res:relation_q147_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_selo_1621cc ;
+    pq:relationLabel """controls""" ;
+    pq:relationTail ent:e_trapa_0e6d2e .
+ent:e_selo_1621cc rel:controls ent:e_trapa_0e6d2e .
+q:q147 pq:hasRelation res:relation_q147_1 .
+
+res:relation_q147_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_trapa_0e6d2e ;
+    pq:relationLabel """separates_or_compartments""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_trapa_0e6d2e rel:separates_or_compartments ent:e_reservatorio_5ab1e2 .
+q:q147 pq:hasRelation res:relation_q147_2 .
+
+res:relation_q147_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorio_5ab1e2 rel:supports_interpretation ent:e_hidrocarbonetos_8c8a35 .
+q:q147 pq:hasRelation res:relation_q147_3 .
+
+res:relation_q147_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_hidrocarbonetos_8c8a35 rel:supports_interpretation ent:e_petroleo_9aa632 .
+q:q147 pq:hasRelation res:relation_q147_4 .
+
+res:relation_q147_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_estrutura_geologica_87248f .
+ent:e_petroleo_9aa632 rel:supports_interpretation ent:e_estrutura_geologica_87248f .
+q:q147 pq:hasRelation res:relation_q147_5 .
+
+res:relation_q147_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estrutura_geologica_87248f ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_controle_estrutural_902029 .
+ent:e_estrutura_geologica_87248f rel:supports_interpretation ent:e_controle_estrutural_902029 .
+q:q147 pq:hasRelation res:relation_q147_6 .
+
+src:s_q147_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q147_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q147_1 a pq:Evidence ;
+    pq:evidenceText """Isso tudo define se existem, na área estudada, estruturas geológicas favoráveis à concentração de petróleo.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q147_1 .
+q:q147 pq:hasEvidence evid:ev_q147_1 .
+evid:ev_q147_1 pq:supportsQuestion q:q147 .
+
+evid:ev_q147_2 a pq:Evidence ;
+    pq:evidenceText """A 'trapa é a característica estratigráfica ou estrutural, que garante a justaposição do reservatório e selo de tal forma que os hidrocarbonetos permanecem presos no subsolo, em vez de fugir (devido à sua natural flutuabilidade) e se perderem.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q147_2 .
+q:q147 pq:hasEvidence evid:ev_q147_2 .
+evid:ev_q147_2 pq:supportsQuestion q:q147 .

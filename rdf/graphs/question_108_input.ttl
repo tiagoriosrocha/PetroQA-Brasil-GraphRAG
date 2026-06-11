@@ -1,0 +1,183 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q108 a pq:Question ;
+    pq:hasQuestionText """Que relação entre composição, propriedade e função geológica pode ser inferida a partir de reservatório?""" ;
+    pq:hasInferenceType """composicional_petrofisica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q108 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q108 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q108 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_porosidade_410e62 a geocore:GeologicalAge ;
+    rdfs:label """porosidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q108 pq:mentionsEntity ent:e_porosidade_410e62 .
+
+ent:e_geralmente_e821f7 a geocore:EarthMaterial ;
+    rdfs:label """Geralmente""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q108 pq:mentionsEntity ent:e_geralmente_e821f7 .
+
+ent:e_cascalhos_4e1149 a geocore:EarthMaterial ;
+    rdfs:label """Cascalhos""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q108 pq:mentionsEntity ent:e_cascalhos_4e1149 .
+
+res:path_q108_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q108 pq:hasReasoningStep res:path_q108_step_1 .
+
+res:path_q108_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q108 pq:hasReasoningStep res:path_q108_step_2 .
+
+res:path_q108_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q108 pq:hasReasoningStep res:path_q108_step_3 .
+
+res:path_q108_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_porosidade_410e62 .
+q:q108 pq:hasReasoningStep res:path_q108_step_4 .
+
+res:path_q108_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_geralmente_e821f7 .
+q:q108 pq:hasReasoningStep res:path_q108_step_5 .
+
+ent:e_composicao_litologica_d1cf85 a geocore:EarthMaterial ;
+    rdfs:label """composição litológica""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+
+res:path_q108_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_composicao_litologica_d1cf85 .
+q:q108 pq:hasReasoningStep res:path_q108_step_6 .
+
+ent:e_propriedade_petrofisica_e5c907 a geocore:EarthMaterial ;
+    rdfs:label """propriedade petrofísica""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+
+res:path_q108_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_propriedade_petrofisica_e5c907 .
+q:q108 pq:hasReasoningStep res:path_q108_step_7 .
+
+res:path_q108_step_1 pq:nextStep res:path_q108_step_2 .
+
+res:path_q108_step_2 pq:nextStep res:path_q108_step_3 .
+
+res:path_q108_step_3 pq:nextStep res:path_q108_step_4 .
+
+res:path_q108_step_4 pq:nextStep res:path_q108_step_5 .
+
+res:path_q108_step_5 pq:nextStep res:path_q108_step_6 .
+
+res:path_q108_step_6 pq:nextStep res:path_q108_step_7 .
+
+q:q108 pq:hasReasoningStart res:path_q108_step_1 ;
+    pq:hasReasoningEnd res:path_q108_step_7 .
+
+res:relation_q108_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """is_composed_of_or_related_to""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_reservatorio_5ab1e2 rel:is_composed_of_or_related_to ent:e_petroleo_9aa632 .
+q:q108 pq:hasRelation res:relation_q108_1 .
+
+res:relation_q108_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """has_property""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:has_property ent:e_oleo_3c92fc .
+q:q108 pq:hasRelation res:relation_q108_2 .
+
+res:relation_q108_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_porosidade_410e62 .
+ent:e_oleo_3c92fc rel:supports_function ent:e_porosidade_410e62 .
+q:q108 pq:hasRelation res:relation_q108_3 .
+
+res:relation_q108_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_porosidade_410e62 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_geralmente_e821f7 .
+ent:e_porosidade_410e62 rel:supports_function ent:e_geralmente_e821f7 .
+q:q108 pq:hasRelation res:relation_q108_4 .
+
+res:relation_q108_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_geralmente_e821f7 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_composicao_litologica_d1cf85 .
+ent:e_geralmente_e821f7 rel:supports_function ent:e_composicao_litologica_d1cf85 .
+q:q108 pq:hasRelation res:relation_q108_5 .
+
+res:relation_q108_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_composicao_litologica_d1cf85 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_propriedade_petrofisica_e5c907 .
+ent:e_composicao_litologica_d1cf85 rel:supports_function ent:e_propriedade_petrofisica_e5c907 .
+q:q108 pq:hasRelation res:relation_q108_6 .
+
+src:s_q108_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Sistema_petrol%C3%ADfero""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q108_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/rochas""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q108_1 a pq:Evidence ;
+    pq:evidenceText """A condição para o armazenamento do petróleo nas rochas reservatório é a porosidade de tais rochas, que variam de 5% a 35%, tendo em média de 15% a 30%.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q108_1 .
+q:q108 pq:hasEvidence evid:ev_q108_1 .
+evid:ev_q108_1 pq:supportsQuestion q:q108 .
+
+evid:ev_q108_2 a pq:Evidence ;
+    pq:evidenceText """Geralmente são compostas por granulometria de areia a seixo como arenitos, calcarenitos ou conglomerados.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q108_2 .
+q:q108 pq:hasEvidence evid:ev_q108_2 .
+evid:ev_q108_2 pq:supportsQuestion q:q108 .
+
+evid:ev_q108_3 a pq:Evidence ;
+    pq:evidenceText """Cascalhos formam conglomerados e brechas, areias formam arenitos, siltes formam siltitos e argilas formam argilitos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Rochas | SGB""" ;
+    pq:fromSource src:s_q108_2 .
+q:q108 pq:hasEvidence evid:ev_q108_3 .
+evid:ev_q108_3 pq:supportsQuestion q:q108 .

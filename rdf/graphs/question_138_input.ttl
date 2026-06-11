@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q138 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Por que a Bacia de Santos é distinta de Campos e Pelotas no contexto citado?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_santos_f3e301 a geocore:GeologicalObject ;
+    rdfs:label """Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_santos_f3e301 .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_pelotas_e880dd a geocore:GeologicalObject ;
+    rdfs:label """Pelotas""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_pelotas_e880dd .
+
+ent:e_formada_550681 a geocore:GeologicalObject ;
+    rdfs:label """Formada""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_formada_550681 .
+
+ent:e_america_ecaa35 a geocore:GeologicalObject ;
+    rdfs:label """América""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_america_ecaa35 .
+
+ent:e_reconhece_se_a68aa0 a geocore:GeologicalObject ;
+    rdfs:label """Reconhece-se""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q138 pq:mentionsEntity ent:e_reconhece_se_a68aa0 .
+
+res:path_q138_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q138 pq:hasReasoningStep res:path_q138_step_1 .
+
+res:path_q138_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q138 pq:hasReasoningStep res:path_q138_step_2 .
+
+res:path_q138_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_4de25b .
+q:q138 pq:hasReasoningStep res:path_q138_step_3 .
+
+res:path_q138_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_santos_f3e301 .
+q:q138 pq:hasReasoningStep res:path_q138_step_4 .
+
+res:path_q138_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campos_827360 .
+q:q138 pq:hasReasoningStep res:path_q138_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q138_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q138 pq:hasReasoningStep res:path_q138_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q138_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q138 pq:hasReasoningStep res:path_q138_step_7 .
+
+res:path_q138_step_1 pq:nextStep res:path_q138_step_2 .
+
+res:path_q138_step_2 pq:nextStep res:path_q138_step_3 .
+
+res:path_q138_step_3 pq:nextStep res:path_q138_step_4 .
+
+res:path_q138_step_4 pq:nextStep res:path_q138_step_5 .
+
+res:path_q138_step_5 pq:nextStep res:path_q138_step_6 .
+
+res:path_q138_step_6 pq:nextStep res:path_q138_step_7 .
+
+q:q138 pq:hasReasoningStart res:path_q138_step_1 ;
+    pq:hasReasoningEnd res:path_q138_step_7 .
+
+res:relation_q138_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_bacia_de_campos_2a27b8 .
+ent:e_bacia_de_santos_564a2f rel:is_related_to ent:e_bacia_de_campos_2a27b8 .
+q:q138 pq:hasRelation res:relation_q138_1 .
+
+res:relation_q138_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_bacia_4de25b .
+ent:e_bacia_de_campos_2a27b8 rel:supports ent:e_bacia_4de25b .
+q:q138 pq:hasRelation res:relation_q138_2 .
+
+res:relation_q138_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_4de25b ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_santos_f3e301 .
+ent:e_bacia_4de25b rel:indicates ent:e_santos_f3e301 .
+q:q138 pq:hasRelation res:relation_q138_3 .
+
+res:relation_q138_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_santos_f3e301 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_campos_827360 .
+ent:e_santos_f3e301 rel:indicates ent:e_campos_827360 .
+q:q138 pq:hasRelation res:relation_q138_4 .
+
+res:relation_q138_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campos_827360 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_campos_827360 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q138 pq:hasRelation res:relation_q138_5 .
+
+res:relation_q138_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q138 pq:hasRelation res:relation_q138_6 .
+
+src:s_q138_1 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/quem-somos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q138_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q138_1 a pq:Evidence ;
+    pq:evidenceText """Formada há mais de 130 milhões de anos, após o início da separação de América do Sul e África, a Bacia de Santos é uma típica bacia sedimentar de margem atlântica, apresentando, porém, uma evolução geológica diferente das bacias de Campos e Pelotas, localizadas respectivamente a norte e sul.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Quem Somos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q138_1 .
+q:q138 pq:hasEvidence evid:ev_q138_1 .
+evid:ev_q138_1 pq:supportsQuestion q:q138 .
+
+evid:ev_q138_2 a pq:Evidence ;
+    pq:evidenceText """Reconhece-se quatro estágios geológicos evolutivos na bacia de Campos, que são pré-rifte (continental), rifte (continental), proto-oceânico (transicional evaporítico) e drift (marinho).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q138_2 .
+q:q138 pq:hasEvidence evid:ev_q138_2 .
+evid:ev_q138_2 pq:supportsQuestion q:q138 .

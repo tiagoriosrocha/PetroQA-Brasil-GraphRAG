@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q068 a pq:Question ;
+    pq:hasQuestionText """Que unidade ou entidade estratigráfica conecta Bacia de Campos à interpretação apresentada nas evidências?""" ;
+    pq:hasInferenceType """entidade_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q068 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q068 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_turbidito_87f8eb a geocore:GeologicalObject ;
+    rdfs:label """turbidito""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_turbidito_87f8eb .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_formacao_carapebus_682714 a geocore:GeologicalObject ;
+    rdfs:label """Formação Carapebus""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q068 pq:mentionsEntity ent:e_formacao_carapebus_682714 .
+
+res:path_q068_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q068 pq:hasReasoningStep res:path_q068_step_1 .
+
+res:path_q068_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q068 pq:hasReasoningStep res:path_q068_step_2 .
+
+res:path_q068_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q068 pq:hasReasoningStep res:path_q068_step_3 .
+
+res:path_q068_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q068 pq:hasReasoningStep res:path_q068_step_4 .
+
+res:path_q068_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q068 pq:hasReasoningStep res:path_q068_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q068_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q068 pq:hasReasoningStep res:path_q068_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q068_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q068 pq:hasReasoningStep res:path_q068_step_7 .
+
+res:path_q068_step_1 pq:nextStep res:path_q068_step_2 .
+
+res:path_q068_step_2 pq:nextStep res:path_q068_step_3 .
+
+res:path_q068_step_3 pq:nextStep res:path_q068_step_4 .
+
+res:path_q068_step_4 pq:nextStep res:path_q068_step_5 .
+
+res:path_q068_step_5 pq:nextStep res:path_q068_step_6 .
+
+res:path_q068_step_6 pq:nextStep res:path_q068_step_7 .
+
+q:q068 pq:hasReasoningStart res:path_q068_step_1 ;
+    pq:hasReasoningEnd res:path_q068_step_7 .
+
+res:relation_q068_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """belongs_to""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_bacia_de_campos_2a27b8 rel:belongs_to ent:e_reservatorio_5ab1e2 .
+q:q068 pq:hasRelation res:relation_q068_1 .
+
+res:relation_q068_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """contains_or_relates_to""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorio_5ab1e2 rel:contains_or_relates_to ent:e_hidrocarbonetos_8c8a35 .
+q:q068 pq:hasRelation res:relation_q068_2 .
+
+res:relation_q068_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_hidrocarbonetos_8c8a35 rel:supports_interpretation ent:e_petroleo_9aa632 .
+q:q068 pq:hasRelation res:relation_q068_3 .
+
+res:relation_q068_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:supports_interpretation ent:e_oleo_3c92fc .
+q:q068 pq:hasRelation res:relation_q068_4 .
+
+res:relation_q068_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_oleo_3c92fc rel:supports_interpretation ent:e_evidencia_textual_ca7e0c .
+q:q068 pq:hasRelation res:relation_q068_5 .
+
+res:relation_q068_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:supports_interpretation ent:e_relacao_geologica_3434ab .
+q:q068 pq:hasRelation res:relation_q068_6 .
+
+src:s_q068_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q068_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Turbidito""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q068_1 a pq:Evidence ;
+    pq:evidenceText """Turbiditos Formação Carapebus K. e Terciano""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q068_1 .
+q:q068 pq:hasEvidence evid:ev_q068_1 .
+evid:ev_q068_1 pq:supportsQuestion q:q068 .
+
+evid:ev_q068_2 a pq:Evidence ;
+    pq:evidenceText """Turbiditos são depósitos sedimentares originados por correntes de turbidez submarinas, sobretudo em bacias de antepaís (foreland), em ambiente tectônico de margem convergente (ativa).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Turbidito | Wikipédia""" ;
+    pq:fromSource src:s_q068_2 .
+q:q068 pq:hasEvidence evid:ev_q068_2 .
+evid:ev_q068_2 pq:supportsQuestion q:q068 .
+
+evid:ev_q068_3 a pq:Evidence ;
+    pq:evidenceText """As sequências turbidíticas são muito procuradas pelos geólogos de petróleo por constituírem bons reservatórios para hidrocarbonetos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Turbidito | Wikipédia""" ;
+    pq:fromSource src:s_q068_2 .
+q:q068 pq:hasEvidence evid:ev_q068_3 .
+evid:ev_q068_3 pq:supportsQuestion q:q068 .

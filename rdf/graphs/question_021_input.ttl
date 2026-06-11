@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q021 a pq:Question ;
+    pq:hasQuestionText """Que interpretação estrutural surge ao relacionar rocha selante com trapa?""" ;
+    pq:hasInferenceType """estrutural_deposicional""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_rocha_selante_ec8f1b a geocore:AmountOfRock ;
+    rdfs:label """rocha selante""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q021 pq:mentionsEntity ent:e_rocha_selante_ec8f1b .
+
+ent:e_trapa_0e6d2e a geocore:GeologicalObject ;
+    rdfs:label """trapa""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q021 pq:mentionsEntity ent:e_trapa_0e6d2e .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q021 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_rochas_geradoras_6d5486 a geocore:AmountOfRock ;
+    rdfs:label """rochas geradoras""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q021 pq:mentionsEntity ent:e_rochas_geradoras_6d5486 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalStructure ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q021 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_coquinas_f4ac89 a geocore:AmountOfRock ;
+    rdfs:label """coquinas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q021 pq:mentionsEntity ent:e_coquinas_f4ac89 .
+
+ent:e_bivalves_71cdf2 a geocore:GeologicalStructure ;
+    rdfs:label """bivalves""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q021 pq:mentionsEntity ent:e_bivalves_71cdf2 .
+
+ent:e_materia_organica_4be6c5 a geocore:GeologicalStructure ;
+    rdfs:label """matéria orgânica""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q021 pq:mentionsEntity ent:e_materia_organica_4be6c5 .
+
+ent:e_tectonica_rifte_03570b a geocore:GeologicalStructure ;
+    rdfs:label """tectônica rifte""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q021 pq:mentionsEntity ent:e_tectonica_rifte_03570b .
+
+res:path_q021_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rocha_selante_ec8f1b .
+q:q021 pq:hasReasoningStep res:path_q021_step_1 .
+
+res:path_q021_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_trapa_0e6d2e .
+q:q021 pq:hasReasoningStep res:path_q021_step_2 .
+
+res:path_q021_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q021 pq:hasReasoningStep res:path_q021_step_3 .
+
+res:path_q021_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rochas_geradoras_6d5486 .
+q:q021 pq:hasReasoningStep res:path_q021_step_4 .
+
+res:path_q021_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q021 pq:hasReasoningStep res:path_q021_step_5 .
+
+ent:e_estrutura_geologica_87248f a geocore:GeologicalStructure ;
+    rdfs:label """estrutura geológica""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q021_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estrutura_geologica_87248f .
+q:q021 pq:hasReasoningStep res:path_q021_step_6 .
+
+ent:e_controle_estrutural_902029 a geocore:GeologicalStructure ;
+    rdfs:label """controle estrutural""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q021_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_controle_estrutural_902029 .
+q:q021 pq:hasReasoningStep res:path_q021_step_7 .
+
+res:path_q021_step_1 pq:nextStep res:path_q021_step_2 .
+
+res:path_q021_step_2 pq:nextStep res:path_q021_step_3 .
+
+res:path_q021_step_3 pq:nextStep res:path_q021_step_4 .
+
+res:path_q021_step_4 pq:nextStep res:path_q021_step_5 .
+
+res:path_q021_step_5 pq:nextStep res:path_q021_step_6 .
+
+res:path_q021_step_6 pq:nextStep res:path_q021_step_7 .
+
+q:q021 pq:hasReasoningStart res:path_q021_step_1 ;
+    pq:hasReasoningEnd res:path_q021_step_7 .
+
+res:relation_q021_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rocha_selante_ec8f1b ;
+    pq:relationLabel """controls""" ;
+    pq:relationTail ent:e_trapa_0e6d2e .
+ent:e_rocha_selante_ec8f1b rel:controls ent:e_trapa_0e6d2e .
+q:q021 pq:hasRelation res:relation_q021_1 .
+
+res:relation_q021_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_trapa_0e6d2e ;
+    pq:relationLabel """influences_deposition""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_trapa_0e6d2e rel:influences_deposition ent:e_reservatorio_5ab1e2 .
+q:q021 pq:hasRelation res:relation_q021_2 .
+
+res:relation_q021_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_rochas_geradoras_6d5486 .
+ent:e_reservatorio_5ab1e2 rel:supports_interpretation ent:e_rochas_geradoras_6d5486 .
+q:q021 pq:hasRelation res:relation_q021_3 .
+
+res:relation_q021_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rochas_geradoras_6d5486 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_rochas_geradoras_6d5486 rel:supports_interpretation ent:e_hidrocarbonetos_8c8a35 .
+q:q021 pq:hasRelation res:relation_q021_4 .
+
+res:relation_q021_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_estrutura_geologica_87248f .
+ent:e_hidrocarbonetos_8c8a35 rel:supports_interpretation ent:e_estrutura_geologica_87248f .
+q:q021 pq:hasRelation res:relation_q021_5 .
+
+res:relation_q021_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estrutura_geologica_87248f ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_controle_estrutural_902029 .
+ent:e_estrutura_geologica_87248f rel:supports_interpretation ent:e_controle_estrutural_902029 .
+q:q021 pq:hasRelation res:relation_q021_6 .
+
+src:s_q021_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/16""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q021_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Sistema_petrol%C3%ADfero""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q021_1 a pq:Evidence ;
+    pq:evidenceText """Depósitos bioclásticos de moluscos bivalves do Barremiano/Aptiano, denominados coquinas do andar local Jiquiá, ocorrem sobre blocos altos falhados, formados durante a tectônica rifte, em morfologias herdadas do embasamento, intercalados com fácies ricas em matéria orgânica em camadas conformantes contínuas nos baixos adjacentes, em ambiente de água doce a salobra.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q021_1 .
+q:q021 pq:hasEvidence evid:ev_q021_1 .
+evid:ev_q021_1 pq:supportsQuestion q:q021 .
+
+evid:ev_q021_2 a pq:Evidence ;
+    pq:evidenceText """Para que estas acumulações ocorram, necessita-se de rochas geradoras maduras, rocha reservatório, rocha selante e a sobrecarga.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q021_2 .
+q:q021 pq:hasEvidence evid:ev_q021_2 .
+evid:ev_q021_2 pq:supportsQuestion q:q021 .
+
+evid:ev_q021_3 a pq:Evidence ;
+    pq:evidenceText """Além da presença destas rochas, dois processos geológicos são fundamentais: a formação de trapas e a geração, migração e acumulação de hidrocarbonetos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q021_2 .
+q:q021 pq:hasEvidence evid:ev_q021_3 .
+evid:ev_q021_3 pq:supportsQuestion q:q021 .

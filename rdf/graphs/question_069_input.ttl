@@ -1,0 +1,185 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q069 a pq:Question ;
+    pq:hasQuestionText """Que unidade ou entidade estratigráfica conecta Bacia de Campos à interpretação apresentada nas evidências?""" ;
+    pq:hasInferenceType """entidade_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_carbonatos_cdf3bc a geocore:AmountOfRock ;
+    rdfs:label """carbonatos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q069 pq:mentionsEntity ent:e_carbonatos_cdf3bc .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_formacao_d1e98a a geocore:GeologicalObject ;
+    rdfs:label """Formação""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_formacao_d1e98a .
+
+ent:e_macae_4a6695 a geocore:GeologicalObject ;
+    rdfs:label """Macaé""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_macae_4a6695 .
+
+ent:e_carbonatos_formacao_ee9431 a geocore:AmountOfRock ;
+    rdfs:label """Carbonatos Formação""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q069 pq:mentionsEntity ent:e_carbonatos_formacao_ee9431 .
+
+ent:e_macae_albiano_de_8e8d54 a geocore:GeologicalObject ;
+    rdfs:label """Macaé Albiano De""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q069 pq:mentionsEntity ent:e_macae_albiano_de_8e8d54 .
+
+res:path_q069_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q069 pq:hasReasoningStep res:path_q069_step_1 .
+
+res:path_q069_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonatos_cdf3bc .
+q:q069 pq:hasReasoningStep res:path_q069_step_2 .
+
+res:path_q069_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_4de25b .
+q:q069 pq:hasReasoningStep res:path_q069_step_3 .
+
+res:path_q069_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campos_827360 .
+q:q069 pq:hasReasoningStep res:path_q069_step_4 .
+
+res:path_q069_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_d1e98a .
+q:q069 pq:hasReasoningStep res:path_q069_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q069_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q069 pq:hasReasoningStep res:path_q069_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q069_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q069 pq:hasReasoningStep res:path_q069_step_7 .
+
+res:path_q069_step_1 pq:nextStep res:path_q069_step_2 .
+
+res:path_q069_step_2 pq:nextStep res:path_q069_step_3 .
+
+res:path_q069_step_3 pq:nextStep res:path_q069_step_4 .
+
+res:path_q069_step_4 pq:nextStep res:path_q069_step_5 .
+
+res:path_q069_step_5 pq:nextStep res:path_q069_step_6 .
+
+res:path_q069_step_6 pq:nextStep res:path_q069_step_7 .
+
+q:q069 pq:hasReasoningStart res:path_q069_step_1 ;
+    pq:hasReasoningEnd res:path_q069_step_7 .
+
+res:relation_q069_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """belongs_to""" ;
+    pq:relationTail ent:e_carbonatos_cdf3bc .
+ent:e_bacia_de_campos_2a27b8 rel:belongs_to ent:e_carbonatos_cdf3bc .
+q:q069 pq:hasRelation res:relation_q069_1 .
+
+res:relation_q069_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonatos_cdf3bc ;
+    pq:relationLabel """contains_or_relates_to""" ;
+    pq:relationTail ent:e_bacia_4de25b .
+ent:e_carbonatos_cdf3bc rel:contains_or_relates_to ent:e_bacia_4de25b .
+q:q069 pq:hasRelation res:relation_q069_2 .
+
+res:relation_q069_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_4de25b ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_campos_827360 .
+ent:e_bacia_4de25b rel:supports_interpretation ent:e_campos_827360 .
+q:q069 pq:hasRelation res:relation_q069_3 .
+
+res:relation_q069_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campos_827360 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_formacao_d1e98a .
+ent:e_campos_827360 rel:supports_interpretation ent:e_formacao_d1e98a .
+q:q069 pq:hasRelation res:relation_q069_4 .
+
+res:relation_q069_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_d1e98a ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_formacao_d1e98a rel:supports_interpretation ent:e_evidencia_textual_ca7e0c .
+q:q069 pq:hasRelation res:relation_q069_5 .
+
+res:relation_q069_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:supports_interpretation ent:e_relacao_geologica_3434ab .
+q:q069 pq:hasRelation res:relation_q069_6 .
+
+src:s_q069_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q069_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/rochas""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q069_1 a pq:Evidence ;
+    pq:evidenceText """Carbonatos Formação de Macaé Albiano""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q069_1 .
+q:q069 pq:hasEvidence evid:ev_q069_1 .
+evid:ev_q069_1 pq:supportsQuestion q:q069 .
+
+evid:ev_q069_2 a pq:Evidence ;
+    pq:evidenceText """De um modo geral e amplo, as rochas sedimentares mais comuns podem ser divididas em arenosas (detríticas), argilosas (detríticas) e carbonatadas (não detríticas), estas últimas subdivididas em calcários e dolomitos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Rochas | SGB""" ;
+    pq:fromSource src:s_q069_2 .
+q:q069 pq:hasEvidence evid:ev_q069_2 .
+evid:ev_q069_2 pq:supportsQuestion q:q069 .

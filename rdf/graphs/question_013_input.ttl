@@ -1,0 +1,209 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q013 a pq:Question ;
+    pq:hasQuestionText """Como as evidências conectam pré-sal à geração de óleo e gás?""" ;
+    pq:hasInferenceType """geracao_de_hidrocarbonetos""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q013 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q013 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q013 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_gas_7b02d0 a geocore:EarthFluid ;
+    rdfs:label """gás""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q013 pq:mentionsEntity ent:e_gas_7b02d0 .
+
+ent:e_materia_organica_4be6c5 a geocore:GeologicalProcess ;
+    rdfs:label """matéria orgânica""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q013 pq:mentionsEntity ent:e_materia_organica_4be6c5 .
+
+ent:e_algas_microscopicas_4a4b35 a geocore:EarthFluid ;
+    rdfs:label """algas microscópicas""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q013 pq:mentionsEntity ent:e_algas_microscopicas_4a4b35 .
+
+ent:e_lagos_7ae343 a geocore:GeologicalProcess ;
+    rdfs:label """lagos""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q013 pq:mentionsEntity ent:e_lagos_7ae343 .
+
+ent:e_deposicao_4b0fd8 a geocore:GeologicalProcess ;
+    rdfs:label """deposição""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q013 pq:mentionsEntity ent:e_deposicao_4b0fd8 .
+
+res:path_q013_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q013 pq:hasReasoningStep res:path_q013_step_1 .
+
+res:path_q013_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q013 pq:hasReasoningStep res:path_q013_step_2 .
+
+res:path_q013_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q013 pq:hasReasoningStep res:path_q013_step_3 .
+
+res:path_q013_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_gas_7b02d0 .
+q:q013 pq:hasReasoningStep res:path_q013_step_4 .
+
+res:path_q013_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_materia_organica_4be6c5 .
+q:q013 pq:hasReasoningStep res:path_q013_step_5 .
+
+ent:e_rocha_geradora_c577a9 a geocore:AmountOfRock ;
+    rdfs:label """rocha geradora""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+
+res:path_q013_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rocha_geradora_c577a9 .
+q:q013 pq:hasReasoningStep res:path_q013_step_6 .
+
+ent:e_geracao_de_hidrocarbonetos_7af893 a geocore:GeologicalProcess ;
+    rdfs:label """geração de hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q013_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_geracao_de_hidrocarbonetos_7af893 .
+q:q013 pq:hasReasoningStep res:path_q013_step_7 .
+
+res:path_q013_step_1 pq:nextStep res:path_q013_step_2 .
+
+res:path_q013_step_2 pq:nextStep res:path_q013_step_3 .
+
+res:path_q013_step_3 pq:nextStep res:path_q013_step_4 .
+
+res:path_q013_step_4 pq:nextStep res:path_q013_step_5 .
+
+res:path_q013_step_5 pq:nextStep res:path_q013_step_6 .
+
+res:path_q013_step_6 pq:nextStep res:path_q013_step_7 .
+
+q:q013 pq:hasReasoningStart res:path_q013_step_1 ;
+    pq:hasReasoningEnd res:path_q013_step_7 .
+
+res:relation_q013_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_pre_sal_535e0b rel:is_related_to ent:e_petroleo_9aa632 .
+q:q013 pq:hasRelation res:relation_q013_1 .
+
+res:relation_q013_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:supports ent:e_oleo_3c92fc .
+q:q013 pq:hasRelation res:relation_q013_2 .
+
+res:relation_q013_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_gas_7b02d0 .
+ent:e_oleo_3c92fc rel:indicates ent:e_gas_7b02d0 .
+q:q013 pq:hasRelation res:relation_q013_3 .
+
+res:relation_q013_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_gas_7b02d0 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_materia_organica_4be6c5 .
+ent:e_gas_7b02d0 rel:indicates ent:e_materia_organica_4be6c5 .
+q:q013 pq:hasRelation res:relation_q013_4 .
+
+res:relation_q013_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_materia_organica_4be6c5 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_rocha_geradora_c577a9 .
+ent:e_materia_organica_4be6c5 rel:indicates ent:e_rocha_geradora_c577a9 .
+q:q013 pq:hasRelation res:relation_q013_5 .
+
+res:relation_q013_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rocha_geradora_c577a9 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_geracao_de_hidrocarbonetos_7af893 .
+ent:e_rocha_geradora_c577a9 rel:indicates ent:e_geracao_de_hidrocarbonetos_7af893 .
+q:q013 pq:hasRelation res:relation_q013_6 .
+
+src:s_q013_1 a pq:Source ;
+    pq:sourceURL """https://petrobras.com.br/pre-sal""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q013_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Sistema_petrol%C3%ADfero""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q013_1 a pq:Evidence ;
+    pq:evidenceText """Com essa separação, surgiram grandes depressões que deram origem a diversos lagos, que mais tarde foram conectados aos oceanos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q013_1 .
+q:q013 pq:hasEvidence evid:ev_q013_1 .
+evid:ev_q013_1 pq:supportsQuestion q:q013 .
+
+evid:ev_q013_2 a pq:Evidence ;
+    pq:evidenceText """Nas regiões mais profundas destes lagos começaram a acumular grandes quantidades de matéria orgânica de algas microscópicas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q013_2 .
+q:q013 pq:hasEvidence evid:ev_q013_2 .
+evid:ev_q013_2 pq:supportsQuestion q:q013 .
+
+evid:ev_q013_3 a pq:Evidence ;
+    pq:evidenceText """Esta matéria orgânica, misturada a sedimentos, formou o que são as rochas que geram o óleo e o gás do pré-sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q013_2 .
+q:q013 pq:hasEvidence evid:ev_q013_3 .
+evid:ev_q013_3 pq:supportsQuestion q:q013 .
+
+evid:ev_q013_4 a pq:Evidence ;
+    pq:evidenceText """O ambiente de deposição consiste principalmente de lagos, deltas e bacias oceânicas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q013_2 .
+q:q013 pq:hasEvidence evid:ev_q013_4 .
+evid:ev_q013_4 pq:supportsQuestion q:q013 .
+
+evid:ev_q013_5 a pq:Evidence ;
+    pq:evidenceText """O tipo de petróleo gerado depende do tipo de matéria orgânica: vegetais terrestres carreados tendem a gerar gás, enquanto que os plânctons tendem a gerar óleo.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q013_2 .
+q:q013 pq:hasEvidence evid:ev_q013_5 .
+evid:ev_q013_5 pq:supportsQuestion q:q013 .

@@ -1,0 +1,170 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q070 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar Formação, Macaé e Arenito Namorado?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_formacao_d1e98a a geocore:GeologicalObject ;
+    rdfs:label """Formação""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q070 pq:mentionsEntity ent:e_formacao_d1e98a .
+
+ent:e_macae_4a6695 a geocore:GeologicalAge ;
+    rdfs:label """Macaé""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q070 pq:mentionsEntity ent:e_macae_4a6695 .
+
+ent:e_arenito_namorado_38595c a geocore:AmountOfRock ;
+    rdfs:label """Arenito Namorado""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q070 pq:mentionsEntity ent:e_arenito_namorado_38595c .
+
+ent:e_arenitos_arenito_namorado_66cc77 a geocore:AmountOfRock ;
+    rdfs:label """Arenitos Arenito Namorado""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q070 pq:mentionsEntity ent:e_arenitos_arenito_namorado_66cc77 .
+
+ent:e_macae_turoniano_esse_6698e1 a geocore:GeologicalAge ;
+    rdfs:label """Macaé Turoniano Esse""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q070 pq:mentionsEntity ent:e_macae_turoniano_esse_6698e1 .
+
+res:path_q070_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_d1e98a .
+q:q070 pq:hasReasoningStep res:path_q070_step_1 .
+
+res:path_q070_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_macae_4a6695 .
+q:q070 pq:hasReasoningStep res:path_q070_step_2 .
+
+res:path_q070_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_arenito_namorado_38595c .
+q:q070 pq:hasReasoningStep res:path_q070_step_3 .
+
+res:path_q070_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_arenitos_arenito_namorado_66cc77 .
+q:q070 pq:hasReasoningStep res:path_q070_step_4 .
+
+res:path_q070_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_macae_turoniano_esse_6698e1 .
+q:q070 pq:hasReasoningStep res:path_q070_step_5 .
+
+ent:e_posicao_estratigrafica_b788eb a geocore:GeologicalAge ;
+    rdfs:label """posição estratigráfica""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q070_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_estratigrafica_b788eb .
+q:q070 pq:hasReasoningStep res:path_q070_step_6 .
+
+ent:e_idade_relativa_7cca4b a geocore:GeologicalAge ;
+    rdfs:label """idade relativa""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q070_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_idade_relativa_7cca4b .
+q:q070 pq:hasReasoningStep res:path_q070_step_7 .
+
+res:path_q070_step_1 pq:nextStep res:path_q070_step_2 .
+
+res:path_q070_step_2 pq:nextStep res:path_q070_step_3 .
+
+res:path_q070_step_3 pq:nextStep res:path_q070_step_4 .
+
+res:path_q070_step_4 pq:nextStep res:path_q070_step_5 .
+
+res:path_q070_step_5 pq:nextStep res:path_q070_step_6 .
+
+res:path_q070_step_6 pq:nextStep res:path_q070_step_7 .
+
+q:q070 pq:hasReasoningStart res:path_q070_step_1 ;
+    pq:hasReasoningEnd res:path_q070_step_7 .
+
+res:relation_q070_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_d1e98a ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_macae_4a6695 .
+ent:e_formacao_d1e98a rel:precedes_or_underlies ent:e_macae_4a6695 .
+q:q070 pq:hasRelation res:relation_q070_1 .
+
+res:relation_q070_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_macae_4a6695 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_arenito_namorado_38595c .
+ent:e_macae_4a6695 rel:indicates ent:e_arenito_namorado_38595c .
+q:q070 pq:hasRelation res:relation_q070_2 .
+
+res:relation_q070_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_arenito_namorado_38595c ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_arenitos_arenito_namorado_66cc77 .
+ent:e_arenito_namorado_38595c rel:supports ent:e_arenitos_arenito_namorado_66cc77 .
+q:q070 pq:hasRelation res:relation_q070_3 .
+
+res:relation_q070_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_arenitos_arenito_namorado_66cc77 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_macae_turoniano_esse_6698e1 .
+ent:e_arenitos_arenito_namorado_66cc77 rel:supports ent:e_macae_turoniano_esse_6698e1 .
+q:q070 pq:hasRelation res:relation_q070_4 .
+
+res:relation_q070_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_macae_turoniano_esse_6698e1 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_posicao_estratigrafica_b788eb .
+ent:e_macae_turoniano_esse_6698e1 rel:supports ent:e_posicao_estratigrafica_b788eb .
+q:q070 pq:hasRelation res:relation_q070_5 .
+
+res:relation_q070_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_estratigrafica_b788eb ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_idade_relativa_7cca4b .
+ent:e_posicao_estratigrafica_b788eb rel:supports ent:e_idade_relativa_7cca4b .
+q:q070 pq:hasRelation res:relation_q070_6 .
+
+src:s_q070_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q070_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/como-sabemos-a-idade-das-rochas""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q070_1 a pq:Evidence ;
+    pq:evidenceText """Arenitos Arenito Namorado da Formação de Macaé Turoniano""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q070_1 .
+q:q070 pq:hasEvidence evid:ev_q070_1 .
+evid:ev_q070_1 pq:supportsQuestion q:q070 .
+
+evid:ev_q070_2 a pq:Evidence ;
+    pq:evidenceText """Esse material vai sendo empilhado e, naturalmente, quanto mais embaixo ele estiver na pilha mais antigo ele é.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Como Sabemos a Idade das Rochas? | SGB""" ;
+    pq:fromSource src:s_q070_2 .
+q:q070 pq:hasEvidence evid:ev_q070_2 .
+evid:ev_q070_2 pq:supportsQuestion q:q070 .

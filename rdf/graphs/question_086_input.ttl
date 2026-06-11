@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q086 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar pré-sal com camada de sal?""" ;
+    pq:hasInferenceType """espacial""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q086 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q086 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q086 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q086 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q086 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q086 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_gas_7b02d0 a geocore:EarthFluid ;
+    rdfs:label """gás""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q086 pq:mentionsEntity ent:e_gas_7b02d0 .
+
+ent:e_acumulacao_015698 a geocore:GeologicalObject ;
+    rdfs:label """acumulação""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q086 pq:mentionsEntity ent:e_acumulacao_015698 .
+
+ent:e_anhanga_ddf431 a geocore:GeologicalObject ;
+    rdfs:label """Anhangá""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q086 pq:mentionsEntity ent:e_anhanga_ddf431 .
+
+res:path_q086_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q086 pq:hasReasoningStep res:path_q086_step_1 .
+
+res:path_q086_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q086 pq:hasReasoningStep res:path_q086_step_2 .
+
+res:path_q086_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q086 pq:hasReasoningStep res:path_q086_step_3 .
+
+res:path_q086_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q086 pq:hasReasoningStep res:path_q086_step_4 .
+
+res:path_q086_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q086 pq:hasReasoningStep res:path_q086_step_5 .
+
+ent:e_posicao_espacial_1a96fd a geocore:GeologicalObject ;
+    rdfs:label """posição espacial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q086_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_espacial_1a96fd .
+q:q086 pq:hasReasoningStep res:path_q086_step_6 .
+
+ent:e_relacao_entre_unidades_4596b3 a geocore:GeologicalAge ;
+    rdfs:label """relação entre unidades""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q086_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_entre_unidades_4596b3 .
+q:q086 pq:hasReasoningStep res:path_q086_step_7 .
+
+res:path_q086_step_1 pq:nextStep res:path_q086_step_2 .
+
+res:path_q086_step_2 pq:nextStep res:path_q086_step_3 .
+
+res:path_q086_step_3 pq:nextStep res:path_q086_step_4 .
+
+res:path_q086_step_4 pq:nextStep res:path_q086_step_5 .
+
+res:path_q086_step_5 pq:nextStep res:path_q086_step_6 .
+
+res:path_q086_step_6 pq:nextStep res:path_q086_step_7 .
+
+q:q086 pq:hasReasoningStart res:path_q086_step_1 ;
+    pq:hasReasoningEnd res:path_q086_step_7 .
+
+res:relation_q086_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pre_sal_535e0b rel:is_related_to ent:e_camada_de_sal_18df21 .
+q:q086 pq:hasRelation res:relation_q086_1 .
+
+res:relation_q086_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_camada_de_sal_18df21 rel:supports ent:e_reservatorio_5ab1e2 .
+q:q086 pq:hasRelation res:relation_q086_2 .
+
+res:relation_q086_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:indicates ent:e_reservatorios_carbonaticos_b1962a .
+q:q086 pq:hasRelation res:relation_q086_3 .
+
+res:relation_q086_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_reservatorios_carbonaticos_b1962a rel:indicates ent:e_petroleo_9aa632 .
+q:q086 pq:hasRelation res:relation_q086_4 .
+
+res:relation_q086_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_posicao_espacial_1a96fd .
+ent:e_petroleo_9aa632 rel:indicates ent:e_posicao_espacial_1a96fd .
+q:q086 pq:hasRelation res:relation_q086_5 .
+
+res:relation_q086_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_espacial_1a96fd ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_entre_unidades_4596b3 .
+ent:e_posicao_espacial_1a96fd rel:indicates ent:e_relacao_entre_unidades_4596b3 .
+q:q086 pq:hasRelation res:relation_q086_6 .
+
+src:s_q086_1 a pq:Source ;
+    pq:sourceURL """https://agencia.petrobras.com.br/w/negocio/petrobras-descobre-petroleo-em-aguas-ultra-profundas-da-bacia-potiguar""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q086_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/quem-somos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q086_1 a pq:Evidence ;
+    pq:evidenceText """A Petrobras descobriu uma acumulação de petróleo em águas ultraprofundas da Bacia Potiguar, no poço exploratório Anhangá, da Concessão POT-M-762_R15.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petrobras descobre petróleo em águas ultraprofundas da Bacia Potiguar | Agência Petrobras""" ;
+    pq:fromSource src:s_q086_1 .
+q:q086 pq:hasEvidence evid:ev_q086_1 .
+evid:ev_q086_1 pq:supportsQuestion q:q086 .
+
+evid:ev_q086_2 a pq:Evidence ;
+    pq:evidenceText """O poço 1-BRSA-1390-RNS (Anhangá) está situado próximo à fronteira entre os estados do Ceará e do Rio Grande do Norte, a cerca de 190 km de Fortaleza e 250 km de Natal, em profundidade d’água de 2.196 metros, na Margem Equatorial brasileira.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petrobras descobre petróleo em águas ultraprofundas da Bacia Potiguar | Agência Petrobras""" ;
+    pq:fromSource src:s_q086_2 .
+q:q086 pq:hasEvidence evid:ev_q086_2 .
+evid:ev_q086_2 pq:supportsQuestion q:q086 .
+
+evid:ev_q086_3 a pq:Evidence ;
+    pq:evidenceText """Em uma região de águas ultraprofundas, ocorre o desenvolvimento de reservatórios carbonáticos abaixo de uma camada de sal com até dois quilômetros de espessura, conhecida como pré-sal, caracterizando uma das maiores províncias de petróleo do mundo, apresentando acumulações de óleo pesado, óleo leve e gás não associado.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Quem Somos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q086_2 .
+q:q086 pq:hasEvidence evid:ev_q086_3 .
+evid:ev_q086_3 pq:supportsQuestion q:q086 .

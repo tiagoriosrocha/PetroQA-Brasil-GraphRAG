@@ -1,0 +1,206 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q004 a pq:Question ;
+    pq:hasQuestionText """Que relação entre composição, propriedade e função geológica pode ser inferida a partir de pré-sal?""" ;
+    pq:hasInferenceType """composicional_petrofisica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q004 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q004 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q004 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:EarthMaterial ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q004 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_estromatolitos_500005 a geocore:AmountOfRock ;
+    rdfs:label """estromatólitos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q004 pq:mentionsEntity ent:e_estromatolitos_500005 .
+
+ent:e_lagos_7ae343 a geocore:EarthMaterial ;
+    rdfs:label """lagos""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q004 pq:mentionsEntity ent:e_lagos_7ae343 .
+
+ent:e_conchas_4b8553 a geocore:EarthMaterial ;
+    rdfs:label """Conchas""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q004 pq:mentionsEntity ent:e_conchas_4b8553 .
+
+ent:e_mais_a173cb a geocore:EarthMaterial ;
+    rdfs:label """Mais""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q004 pq:mentionsEntity ent:e_mais_a173cb .
+
+ent:e_tanto_a22824 a geocore:EarthMaterial ;
+    rdfs:label """Tanto""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q004 pq:mentionsEntity ent:e_tanto_a22824 .
+
+res:path_q004_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q004 pq:hasReasoningStep res:path_q004_step_1 .
+
+res:path_q004_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q004 pq:hasReasoningStep res:path_q004_step_2 .
+
+res:path_q004_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q004 pq:hasReasoningStep res:path_q004_step_3 .
+
+res:path_q004_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q004 pq:hasReasoningStep res:path_q004_step_4 .
+
+res:path_q004_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estromatolitos_500005 .
+q:q004 pq:hasReasoningStep res:path_q004_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q004_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q004 pq:hasReasoningStep res:path_q004_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q004_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q004 pq:hasReasoningStep res:path_q004_step_7 .
+
+res:path_q004_step_1 pq:nextStep res:path_q004_step_2 .
+
+res:path_q004_step_2 pq:nextStep res:path_q004_step_3 .
+
+res:path_q004_step_3 pq:nextStep res:path_q004_step_4 .
+
+res:path_q004_step_4 pq:nextStep res:path_q004_step_5 .
+
+res:path_q004_step_5 pq:nextStep res:path_q004_step_6 .
+
+res:path_q004_step_6 pq:nextStep res:path_q004_step_7 .
+
+q:q004 pq:hasReasoningStart res:path_q004_step_1 ;
+    pq:hasReasoningEnd res:path_q004_step_7 .
+
+res:relation_q004_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """is_composed_of_or_related_to""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_pre_sal_535e0b rel:is_composed_of_or_related_to ent:e_reservatorio_5ab1e2 .
+q:q004 pq:hasRelation res:relation_q004_1 .
+
+res:relation_q004_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """has_property""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:has_property ent:e_reservatorios_carbonaticos_b1962a .
+q:q004 pq:hasRelation res:relation_q004_2 .
+
+res:relation_q004_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorios_carbonaticos_b1962a rel:supports_function ent:e_hidrocarbonetos_8c8a35 .
+q:q004 pq:hasRelation res:relation_q004_3 .
+
+res:relation_q004_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_estromatolitos_500005 .
+ent:e_hidrocarbonetos_8c8a35 rel:supports_function ent:e_estromatolitos_500005 .
+q:q004 pq:hasRelation res:relation_q004_4 .
+
+res:relation_q004_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estromatolitos_500005 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_estromatolitos_500005 rel:supports_function ent:e_baixa_permeabilidade_68d997 .
+q:q004 pq:hasRelation res:relation_q004_5 .
+
+res:relation_q004_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:supports_function ent:e_selo_geologico_1ec974 .
+q:q004 pq:hasRelation res:relation_q004_6 .
+
+src:s_q004_1 a pq:Source ;
+    pq:sourceURL """https://petrobras.com.br/pre-sal""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q004_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q004_1 a pq:Evidence ;
+    pq:evidenceText """Nas partes mais rasas destes lagos, em grandes ilhas lacustres, surgiram as chamadas conchas calcárias que se acumularam cada vez mais com o passar do tempo.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q004_1 .
+q:q004 pq:hasEvidence evid:ev_q004_1 .
+evid:ev_q004_1 pq:supportsQuestion q:q004 .
+
+evid:ev_q004_2 a pq:Evidence ;
+    pq:evidenceText """Mais pra frente, essas conchas 'ganharam a companhia' de depósitos de estromatólitos, que nada mais são do que tipos de algas que formam rochas calcárias.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q004_2 .
+q:q004 pq:hasEvidence evid:ev_q004_2 .
+evid:ev_q004_2 pq:supportsQuestion q:q004 .
+
+evid:ev_q004_3 a pq:Evidence ;
+    pq:evidenceText """Tanto as conchas calcárias quanto as rochas calcárias compõem os principais reservatórios do pré-sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q004_2 .
+q:q004 pq:hasEvidence evid:ev_q004_3 .
+evid:ev_q004_3 pq:supportsQuestion q:q004 .
+
+evid:ev_q004_4 a pq:Evidence ;
+    pq:evidenceText """O reservatório é uma unidade litológica porosa e permeável ou conjunto de unidade que retém as reservas de hidrocarbonetos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q004_2 .
+q:q004 pq:hasEvidence evid:ev_q004_4 .
+evid:ev_q004_4 pq:supportsQuestion q:q004 .

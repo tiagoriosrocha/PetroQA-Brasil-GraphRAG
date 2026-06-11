@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q024 a pq:Question ;
+    pq:hasQuestionText """Como as evidências conectam Bacia de Santos à retenção ou migração de hidrocarbonetos?""" ;
+    pq:hasInferenceType """selo_e_retencao""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q024 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q024 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q024 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_evaporitos_86b63a a geocore:AmountOfRock ;
+    rdfs:label """evaporitos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q024 pq:mentionsEntity ent:e_evaporitos_86b63a .
+
+ent:e_selo_1621cc a geocore:GeologicalObject ;
+    rdfs:label """selo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q024 pq:mentionsEntity ent:e_selo_1621cc .
+
+ent:e_rocha_selante_ec8f1b a geocore:AmountOfRock ;
+    rdfs:label """rocha selante""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q024 pq:mentionsEntity ent:e_rocha_selante_ec8f1b .
+
+ent:e_trapa_0e6d2e a geocore:GeologicalObject ;
+    rdfs:label """trapa""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q024 pq:mentionsEntity ent:e_trapa_0e6d2e .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q024 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q024 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+res:path_q024_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q024 pq:hasReasoningStep res:path_q024_step_1 .
+
+res:path_q024_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q024 pq:hasReasoningStep res:path_q024_step_2 .
+
+res:path_q024_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q024 pq:hasReasoningStep res:path_q024_step_3 .
+
+res:path_q024_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evaporitos_86b63a .
+q:q024 pq:hasReasoningStep res:path_q024_step_4 .
+
+res:path_q024_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_1621cc .
+q:q024 pq:hasReasoningStep res:path_q024_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q024_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q024 pq:hasReasoningStep res:path_q024_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q024_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q024 pq:hasReasoningStep res:path_q024_step_7 .
+
+res:path_q024_step_1 pq:nextStep res:path_q024_step_2 .
+
+res:path_q024_step_2 pq:nextStep res:path_q024_step_3 .
+
+res:path_q024_step_3 pq:nextStep res:path_q024_step_4 .
+
+res:path_q024_step_4 pq:nextStep res:path_q024_step_5 .
+
+res:path_q024_step_5 pq:nextStep res:path_q024_step_6 .
+
+res:path_q024_step_6 pq:nextStep res:path_q024_step_7 .
+
+q:q024 pq:hasReasoningStart res:path_q024_step_1 ;
+    pq:hasReasoningEnd res:path_q024_step_7 .
+
+res:relation_q024_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """acts_as""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_de_santos_564a2f rel:acts_as ent:e_pre_sal_535e0b .
+q:q024 pq:hasRelation res:relation_q024_1 .
+
+res:relation_q024_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """enables""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pre_sal_535e0b rel:enables ent:e_camada_de_sal_18df21 .
+q:q024 pq:hasRelation res:relation_q024_2 .
+
+res:relation_q024_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_evaporitos_86b63a .
+ent:e_camada_de_sal_18df21 rel:prevents_or_retains ent:e_evaporitos_86b63a .
+q:q024 pq:hasRelation res:relation_q024_3 .
+
+res:relation_q024_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evaporitos_86b63a ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_selo_1621cc .
+ent:e_evaporitos_86b63a rel:prevents_or_retains ent:e_selo_1621cc .
+q:q024 pq:hasRelation res:relation_q024_4 .
+
+res:relation_q024_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_selo_1621cc ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_selo_1621cc rel:prevents_or_retains ent:e_baixa_permeabilidade_68d997 .
+q:q024 pq:hasRelation res:relation_q024_5 .
+
+res:relation_q024_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:prevents_or_retains ent:e_selo_geologico_1ec974 .
+q:q024 pq:hasRelation res:relation_q024_6 .
+
+src:s_q024_1 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/pre-sal-bacia-de-santos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q024_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q024_1 a pq:Evidence ;
+    pq:evidenceText """Tal conjunto de rochas, com potencial para a formação de petróleo, está localizado sob uma extensa camada de sal que atinge espessuras de até 2 mil metros, formando uma espécie de selo e garantindo, assim, a geração de óleo de ótima qualidade.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal Bacia de Santos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q024_1 .
+q:q024 pq:hasEvidence evid:ev_q024_1 .
+evid:ev_q024_1 pq:supportsQuestion q:q024 .
+
+evid:ev_q024_2 a pq:Evidence ;
+    pq:evidenceText """O selo, ou rocha selante, é uma unidade com baixa permeabilidade que impede o escape de hidrocarbonetos da rocha reservatório.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q024_2 .
+q:q024 pq:hasEvidence evid:ev_q024_2 .
+evid:ev_q024_2 pq:supportsQuestion q:q024 .
+
+evid:ev_q024_3 a pq:Evidence ;
+    pq:evidenceText """A 'trapa é a característica estratigráfica ou estrutural, que garante a justaposição do reservatório e selo de tal forma que os hidrocarbonetos permanecem presos no subsolo, em vez de fugir (devido à sua natural flutuabilidade) e se perderem.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q024_2 .
+q:q024 pq:hasEvidence evid:ev_q024_3 .
+evid:ev_q024_3 pq:supportsQuestion q:q024 .

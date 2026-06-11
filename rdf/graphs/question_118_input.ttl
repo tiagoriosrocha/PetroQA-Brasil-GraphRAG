@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q118 a pq:Question ;
+    pq:hasQuestionText """Como as evidências conectam trapa à retenção ou migração de hidrocarbonetos?""" ;
+    pq:hasInferenceType """processual_migracao""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_trapa_0e6d2e a geocore:GeologicalObject ;
+    rdfs:label """trapa""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q118 pq:mentionsEntity ent:e_trapa_0e6d2e .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q118 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalProcess ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q118 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q118 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q118 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_falhas_f136b1 a geocore:GeologicalStructure ;
+    rdfs:label """falhas""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q118 pq:mentionsEntity ent:e_falhas_f136b1 .
+
+ent:e_porosidade_410e62 a geocore:GeologicalAge ;
+    rdfs:label """porosidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q118 pq:mentionsEntity ent:e_porosidade_410e62 .
+
+ent:e_permeabilidade_2c45cd a geocore:GeologicalAge ;
+    rdfs:label """permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q118 pq:mentionsEntity ent:e_permeabilidade_2c45cd .
+
+ent:e_migracao_6a31cc a geocore:GeologicalProcess ;
+    rdfs:label """migração""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q118 pq:mentionsEntity ent:e_migracao_6a31cc .
+
+res:path_q118_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_trapa_0e6d2e .
+q:q118 pq:hasReasoningStep res:path_q118_step_1 .
+
+res:path_q118_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q118 pq:hasReasoningStep res:path_q118_step_2 .
+
+res:path_q118_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q118 pq:hasReasoningStep res:path_q118_step_3 .
+
+res:path_q118_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q118 pq:hasReasoningStep res:path_q118_step_4 .
+
+res:path_q118_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q118 pq:hasReasoningStep res:path_q118_step_5 .
+
+ent:e_processo_deposicional_0a962b a geocore:GeologicalProcess ;
+    rdfs:label """processo deposicional""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q118_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_processo_deposicional_0a962b .
+q:q118 pq:hasReasoningStep res:path_q118_step_6 .
+
+ent:e_evento_geologico_5de000 a geocore:GeologicalProcess ;
+    rdfs:label """evento geológico""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q118_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evento_geologico_5de000 .
+q:q118 pq:hasReasoningStep res:path_q118_step_7 .
+
+res:path_q118_step_1 pq:nextStep res:path_q118_step_2 .
+
+res:path_q118_step_2 pq:nextStep res:path_q118_step_3 .
+
+res:path_q118_step_3 pq:nextStep res:path_q118_step_4 .
+
+res:path_q118_step_4 pq:nextStep res:path_q118_step_5 .
+
+res:path_q118_step_5 pq:nextStep res:path_q118_step_6 .
+
+res:path_q118_step_6 pq:nextStep res:path_q118_step_7 .
+
+q:q118 pq:hasReasoningStart res:path_q118_step_1 ;
+    pq:hasReasoningEnd res:path_q118_step_7 .
+
+res:relation_q118_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_trapa_0e6d2e ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_trapa_0e6d2e rel:is_related_to ent:e_reservatorio_5ab1e2 .
+q:q118 pq:hasRelation res:relation_q118_1 .
+
+res:relation_q118_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """controls""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorio_5ab1e2 rel:controls ent:e_hidrocarbonetos_8c8a35 .
+q:q118 pq:hasRelation res:relation_q118_2 .
+
+res:relation_q118_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """affects""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_hidrocarbonetos_8c8a35 rel:affects ent:e_petroleo_9aa632 .
+q:q118 pq:hasRelation res:relation_q118_3 .
+
+res:relation_q118_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """affects""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:affects ent:e_oleo_3c92fc .
+q:q118 pq:hasRelation res:relation_q118_4 .
+
+res:relation_q118_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """affects""" ;
+    pq:relationTail ent:e_processo_deposicional_0a962b .
+ent:e_oleo_3c92fc rel:affects ent:e_processo_deposicional_0a962b .
+q:q118 pq:hasRelation res:relation_q118_5 .
+
+res:relation_q118_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_processo_deposicional_0a962b ;
+    pq:relationLabel """affects""" ;
+    pq:relationTail ent:e_evento_geologico_5de000 .
+ent:e_processo_deposicional_0a962b rel:affects ent:e_evento_geologico_5de000 .
+q:q118 pq:hasRelation res:relation_q118_6 .
+
+src:s_q118_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Sistema_petrol%C3%ADfero""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q118_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q118_1 a pq:Evidence ;
+    pq:evidenceText """Os caminhos de migração constituem-se das fraturas, falhas, rochas carreadoras (rochas com porosidade e permeabilidade suficientes para permitir o transporte).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q118_1 .
+q:q118 pq:hasEvidence evid:ev_q118_1 .
+evid:ev_q118_1 pq:supportsQuestion q:q118 .
+
+evid:ev_q118_2 a pq:Evidence ;
+    pq:evidenceText """O petróleo gerado percorre estes caminhos até encontrar uma trapa.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q118_2 .
+q:q118 pq:hasEvidence evid:ev_q118_2 .
+evid:ev_q118_2 pq:supportsQuestion q:q118 .
+
+evid:ev_q118_3 a pq:Evidence ;
+    pq:evidenceText """Finalmente, estudos de migração revelam informação sobre como hidrocarbonetos movem-se da fonte ao reservatório e ajudam a quantificar a fonte (ou "a cozinha") dos hidrocarbonetos em uma área em particular.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q118_2 .
+q:q118 pq:hasEvidence evid:ev_q118_3 .
+evid:ev_q118_3 pq:supportsQuestion q:q118 .

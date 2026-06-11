@@ -1,0 +1,193 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q066 a pq:Question ;
+    pq:hasQuestionText """Que papel geológico deve ser atribuído a Bacia de Campos quando as evidências são relacionadas?""" ;
+    pq:hasInferenceType """entidade_funcao""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q066 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_rocha_geradora_c577a9 a geocore:AmountOfRock ;
+    rdfs:label """rocha geradora""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q066 pq:mentionsEntity ent:e_rocha_geradora_c577a9 .
+
+ent:e_rochas_geradoras_6d5486 a geocore:AmountOfRock ;
+    rdfs:label """rochas geradoras""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q066 pq:mentionsEntity ent:e_rochas_geradoras_6d5486 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q066 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q066 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q066 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q066 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q066 pq:mentionsEntity ent:e_campos_827360 .
+
+res:path_q066_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q066 pq:hasReasoningStep res:path_q066_step_1 .
+
+res:path_q066_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rocha_geradora_c577a9 .
+q:q066 pq:hasReasoningStep res:path_q066_step_2 .
+
+res:path_q066_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rochas_geradoras_6d5486 .
+q:q066 pq:hasReasoningStep res:path_q066_step_3 .
+
+res:path_q066_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q066 pq:hasReasoningStep res:path_q066_step_4 .
+
+res:path_q066_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q066 pq:hasReasoningStep res:path_q066_step_5 .
+
+ent:e_materia_organica_4be6c5 a geocore:GeologicalObject ;
+    rdfs:label """matéria orgânica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q066_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_materia_organica_4be6c5 .
+q:q066 pq:hasReasoningStep res:path_q066_step_6 .
+
+ent:e_geracao_de_hidrocarbonetos_7af893 a geocore:GeologicalProcess ;
+    rdfs:label """geração de hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q066_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_geracao_de_hidrocarbonetos_7af893 .
+q:q066 pq:hasReasoningStep res:path_q066_step_7 .
+
+res:path_q066_step_1 pq:nextStep res:path_q066_step_2 .
+
+res:path_q066_step_2 pq:nextStep res:path_q066_step_3 .
+
+res:path_q066_step_3 pq:nextStep res:path_q066_step_4 .
+
+res:path_q066_step_4 pq:nextStep res:path_q066_step_5 .
+
+res:path_q066_step_5 pq:nextStep res:path_q066_step_6 .
+
+res:path_q066_step_6 pq:nextStep res:path_q066_step_7 .
+
+q:q066 pq:hasReasoningStart res:path_q066_step_1 ;
+    pq:hasReasoningEnd res:path_q066_step_7 .
+
+res:relation_q066_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """is_type_of""" ;
+    pq:relationTail ent:e_rocha_geradora_c577a9 .
+ent:e_bacia_de_campos_2a27b8 rel:is_type_of ent:e_rocha_geradora_c577a9 .
+q:q066 pq:hasRelation res:relation_q066_1 .
+
+res:relation_q066_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rocha_geradora_c577a9 ;
+    pq:relationLabel """has_function""" ;
+    pq:relationTail ent:e_rochas_geradoras_6d5486 .
+ent:e_rocha_geradora_c577a9 rel:has_function ent:e_rochas_geradoras_6d5486 .
+q:q066 pq:hasRelation res:relation_q066_2 .
+
+res:relation_q066_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rochas_geradoras_6d5486 ;
+    pq:relationLabel """supports_role""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_rochas_geradoras_6d5486 rel:supports_role ent:e_hidrocarbonetos_8c8a35 .
+q:q066 pq:hasRelation res:relation_q066_3 .
+
+res:relation_q066_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports_role""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_hidrocarbonetos_8c8a35 rel:supports_role ent:e_petroleo_9aa632 .
+q:q066 pq:hasRelation res:relation_q066_4 .
+
+res:relation_q066_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """supports_role""" ;
+    pq:relationTail ent:e_materia_organica_4be6c5 .
+ent:e_petroleo_9aa632 rel:supports_role ent:e_materia_organica_4be6c5 .
+q:q066 pq:hasRelation res:relation_q066_5 .
+
+res:relation_q066_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_materia_organica_4be6c5 ;
+    pq:relationLabel """supports_role""" ;
+    pq:relationTail ent:e_geracao_de_hidrocarbonetos_7af893 .
+ent:e_materia_organica_4be6c5 rel:supports_role ent:e_geracao_de_hidrocarbonetos_7af893 .
+q:q066 pq:hasRelation res:relation_q066_6 .
+
+src:s_q066_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q066_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q066_1 a pq:Evidence ;
+    pq:evidenceText """As rochas geradoras de hidrocarbonetos da Bacia de Campos correspondem a folhelhos orgânicos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q066_1 .
+q:q066 pq:hasEvidence evid:ev_q066_1 .
+evid:ev_q066_1 pq:supportsQuestion q:q066 .
+
+evid:ev_q066_2 a pq:Evidence ;
+    pq:evidenceText """A rocha onde o petróleo se forma é chamada de rocha geradora.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q066_2 .
+q:q066 pq:hasEvidence evid:ev_q066_2 .
+evid:ev_q066_2 pq:supportsQuestion q:q066 .
+
+evid:ev_q066_3 a pq:Evidence ;
+    pq:evidenceText """As rochas geradoras mais comuns são folhelhos negros.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q066_2 .
+q:q066 pq:hasEvidence evid:ev_q066_3 .
+evid:ev_q066_3 pq:supportsQuestion q:q066 .

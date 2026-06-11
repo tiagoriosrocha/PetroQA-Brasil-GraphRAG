@@ -1,0 +1,169 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q119 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Que papel os estudos de bacias desempenham antes da perfuração exploratória?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """medium""" ;
+    pq:hasRetrievalScope """multi_passage""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "3"^^xsd:integer .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q119 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q119 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_eles_ab05b4 a geocore:GeologicalObject ;
+    rdfs:label """Eles""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q119 pq:mentionsEntity ent:e_eles_ab05b4 .
+
+ent:e_isso_436208 a geocore:GeologicalObject ;
+    rdfs:label """Isso""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q119 pq:mentionsEntity ent:e_isso_436208 .
+
+res:path_q119_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q119 pq:hasReasoningStep res:path_q119_step_1 .
+
+res:path_q119_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q119 pq:hasReasoningStep res:path_q119_step_2 .
+
+res:path_q119_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_eles_ab05b4 .
+q:q119 pq:hasReasoningStep res:path_q119_step_3 .
+
+res:path_q119_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_isso_436208 .
+q:q119 pq:hasReasoningStep res:path_q119_step_4 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q119_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q119 pq:hasReasoningStep res:path_q119_step_5 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q119_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q119 pq:hasReasoningStep res:path_q119_step_6 .
+
+ent:e_interpretacao_inferencial_44d613 a geocore:GeologicalObject ;
+    rdfs:label """interpretação inferencial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q119_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_interpretacao_inferencial_44d613 .
+q:q119 pq:hasReasoningStep res:path_q119_step_7 .
+
+res:path_q119_step_1 pq:nextStep res:path_q119_step_2 .
+
+res:path_q119_step_2 pq:nextStep res:path_q119_step_3 .
+
+res:path_q119_step_3 pq:nextStep res:path_q119_step_4 .
+
+res:path_q119_step_4 pq:nextStep res:path_q119_step_5 .
+
+res:path_q119_step_5 pq:nextStep res:path_q119_step_6 .
+
+res:path_q119_step_6 pq:nextStep res:path_q119_step_7 .
+
+q:q119 pq:hasReasoningStart res:path_q119_step_1 ;
+    pq:hasReasoningEnd res:path_q119_step_7 .
+
+res:relation_q119_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:is_related_to ent:e_oleo_3c92fc .
+q:q119 pq:hasRelation res:relation_q119_1 .
+
+res:relation_q119_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_eles_ab05b4 .
+ent:e_oleo_3c92fc rel:supports ent:e_eles_ab05b4 .
+q:q119 pq:hasRelation res:relation_q119_2 .
+
+res:relation_q119_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_eles_ab05b4 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_isso_436208 .
+ent:e_eles_ab05b4 rel:indicates ent:e_isso_436208 .
+q:q119 pq:hasRelation res:relation_q119_3 .
+
+res:relation_q119_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_isso_436208 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_isso_436208 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q119 pq:hasRelation res:relation_q119_4 .
+
+res:relation_q119_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q119 pq:hasRelation res:relation_q119_5 .
+
+res:relation_q119_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_relacao_geologica_3434ab ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_interpretacao_inferencial_44d613 .
+ent:e_relacao_geologica_3434ab rel:indicates ent:e_interpretacao_inferencial_44d613 .
+q:q119 pq:hasRelation res:relation_q119_6 .
+
+src:s_q119_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q119_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q119_1 a pq:Evidence ;
+    pq:evidenceText """Isso tudo define se existem, na área estudada, estruturas geológicas favoráveis à concentração de petróleo.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q119_1 .
+q:q119 pq:hasEvidence evid:ev_q119_1 .
+evid:ev_q119_1 pq:supportsQuestion q:q119 .
+
+evid:ev_q119_2 a pq:Evidence ;
+    pq:evidenceText """A geologia do petróleo trata principalmente da avaliação de sete elementos chave em bacias sedimentares:""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q119_2 .
+q:q119 pq:hasEvidence evid:ev_q119_2 .
+evid:ev_q119_2 pq:supportsQuestion q:q119 .

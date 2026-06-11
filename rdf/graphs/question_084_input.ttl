@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q084 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Qual interpretação deve ser feita quando perfis elétricos e amostras de óleo confirmam reservatórios turbidíticos portadores de petróleo?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q084 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q084 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q084 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q084 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_porosidade_410e62 a geocore:GeologicalAge ;
+    rdfs:label """porosidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q084 pq:mentionsEntity ent:e_porosidade_410e62 .
+
+ent:e_permeabilidade_2c45cd a geocore:GeologicalAge ;
+    rdfs:label """permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q084 pq:mentionsEntity ent:e_permeabilidade_2c45cd .
+
+ent:e_acumulacao_015698 a geocore:GeologicalObject ;
+    rdfs:label """acumulação""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q084 pq:mentionsEntity ent:e_acumulacao_015698 .
+
+ent:e_albiana_b471a1 a geocore:GeologicalObject ;
+    rdfs:label """Albiana""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q084 pq:mentionsEntity ent:e_albiana_b471a1 .
+
+ent:e_bacia_potiguar_4f5498 a geocore:GeologicalObject ;
+    rdfs:label """Bacia Potiguar""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q084 pq:mentionsEntity ent:e_bacia_potiguar_4f5498 .
+
+res:path_q084_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q084 pq:hasReasoningStep res:path_q084_step_1 .
+
+res:path_q084_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q084 pq:hasReasoningStep res:path_q084_step_2 .
+
+res:path_q084_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q084 pq:hasReasoningStep res:path_q084_step_3 .
+
+res:path_q084_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q084 pq:hasReasoningStep res:path_q084_step_4 .
+
+res:path_q084_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_porosidade_410e62 .
+q:q084 pq:hasReasoningStep res:path_q084_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q084_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q084 pq:hasReasoningStep res:path_q084_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q084_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q084 pq:hasReasoningStep res:path_q084_step_7 .
+
+res:path_q084_step_1 pq:nextStep res:path_q084_step_2 .
+
+res:path_q084_step_2 pq:nextStep res:path_q084_step_3 .
+
+res:path_q084_step_3 pq:nextStep res:path_q084_step_4 .
+
+res:path_q084_step_4 pq:nextStep res:path_q084_step_5 .
+
+res:path_q084_step_5 pq:nextStep res:path_q084_step_6 .
+
+res:path_q084_step_6 pq:nextStep res:path_q084_step_7 .
+
+q:q084 pq:hasReasoningStart res:path_q084_step_1 ;
+    pq:hasReasoningEnd res:path_q084_step_7 .
+
+res:relation_q084_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorio_5ab1e2 rel:is_related_to ent:e_hidrocarbonetos_8c8a35 .
+q:q084 pq:hasRelation res:relation_q084_1 .
+
+res:relation_q084_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_petroleo_9aa632 .
+ent:e_hidrocarbonetos_8c8a35 rel:supports ent:e_petroleo_9aa632 .
+q:q084 pq:hasRelation res:relation_q084_2 .
+
+res:relation_q084_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:indicates ent:e_oleo_3c92fc .
+q:q084 pq:hasRelation res:relation_q084_3 .
+
+res:relation_q084_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_porosidade_410e62 .
+ent:e_oleo_3c92fc rel:indicates ent:e_porosidade_410e62 .
+q:q084 pq:hasRelation res:relation_q084_4 .
+
+res:relation_q084_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_porosidade_410e62 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_porosidade_410e62 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q084 pq:hasRelation res:relation_q084_5 .
+
+res:relation_q084_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q084 pq:hasRelation res:relation_q084_6 .
+
+src:s_q084_1 a pq:Source ;
+    pq:sourceURL """https://agencia.petrobras.com.br/w/negocio/petrobras-descobre-petroleo-em-aguas-ultra-profundas-da-bacia-potiguar""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q084_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q084_1 a pq:Evidence ;
+    pq:evidenceText """A constatação de reservatórios turbidíticos de idade Albiana portador de petróleo é inédita na Bacia Potiguar e foi realizada através de perfis elétricos e amostras de óleo, que serão posteriormente caracterizados por meio de análises de laboratório.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petrobras descobre petróleo em águas ultraprofundas da Bacia Potiguar | Agência Petrobras""" ;
+    pq:fromSource src:s_q084_1 .
+q:q084 pq:hasEvidence evid:ev_q084_1 .
+evid:ev_q084_1 pq:supportsQuestion q:q084 .
+
+evid:ev_q084_2 a pq:Evidence ;
+    pq:evidenceText """A Petrobras dará continuidade às atividades exploratórias na Concessão POT-M-762_R15, visando avaliar a qualidade dos reservatórios, as características do óleo e a viabilidade técnico-comercial da acumulação.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petrobras descobre petróleo em águas ultraprofundas da Bacia Potiguar | Agência Petrobras""" ;
+    pq:fromSource src:s_q084_2 .
+q:q084 pq:hasEvidence evid:ev_q084_2 .
+evid:ev_q084_2 pq:supportsQuestion q:q084 .
+
+evid:ev_q084_3 a pq:Evidence ;
+    pq:evidenceText """A análise de reservatórios no mais simples nível requer uma avaliação da sua porosidade (para calcular o volume de hidrocarbonetos in situ) e sua permeabilidade (para calcular quão facilmente os hidrocarbonetos irão fluir fora dele).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q084_2 .
+q:q084 pq:hasEvidence evid:ev_q084_3 .
+evid:ev_q084_3 pq:supportsQuestion q:q084 .

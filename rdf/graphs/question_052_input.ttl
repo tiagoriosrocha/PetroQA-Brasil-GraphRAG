@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q052 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar Bacia de Santos com pré-sal?""" ;
+    pq:hasInferenceType """espacial""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q052 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_campo_de_mero_c651f5 a geocore:GeologicalObject ;
+    rdfs:label """Campo de Mero""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_campo_de_mero_c651f5 .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q052 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_acumulacao_015698 a geocore:GeologicalObject ;
+    rdfs:label """acumulação""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_acumulacao_015698 .
+
+ent:e_mero_22bca0 a geocore:GeologicalObject ;
+    rdfs:label """Mero""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_mero_22bca0 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q052 pq:mentionsEntity ent:e_bacia_4de25b .
+
+res:path_q052_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q052 pq:hasReasoningStep res:path_q052_step_1 .
+
+res:path_q052_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q052 pq:hasReasoningStep res:path_q052_step_2 .
+
+res:path_q052_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campo_de_mero_c651f5 .
+q:q052 pq:hasReasoningStep res:path_q052_step_3 .
+
+res:path_q052_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q052 pq:hasReasoningStep res:path_q052_step_4 .
+
+res:path_q052_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q052 pq:hasReasoningStep res:path_q052_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q052_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q052 pq:hasReasoningStep res:path_q052_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q052_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q052 pq:hasReasoningStep res:path_q052_step_7 .
+
+res:path_q052_step_1 pq:nextStep res:path_q052_step_2 .
+
+res:path_q052_step_2 pq:nextStep res:path_q052_step_3 .
+
+res:path_q052_step_3 pq:nextStep res:path_q052_step_4 .
+
+res:path_q052_step_4 pq:nextStep res:path_q052_step_5 .
+
+res:path_q052_step_5 pq:nextStep res:path_q052_step_6 .
+
+res:path_q052_step_6 pq:nextStep res:path_q052_step_7 .
+
+q:q052 pq:hasReasoningStart res:path_q052_step_1 ;
+    pq:hasReasoningEnd res:path_q052_step_7 .
+
+res:relation_q052_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_de_santos_564a2f rel:is_related_to ent:e_pre_sal_535e0b .
+q:q052 pq:hasRelation res:relation_q052_1 .
+
+res:relation_q052_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_campo_de_mero_c651f5 .
+ent:e_pre_sal_535e0b rel:supports ent:e_campo_de_mero_c651f5 .
+q:q052 pq:hasRelation res:relation_q052_2 .
+
+res:relation_q052_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campo_de_mero_c651f5 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_campo_de_mero_c651f5 rel:indicates ent:e_reservatorio_5ab1e2 .
+q:q052 pq:hasRelation res:relation_q052_3 .
+
+res:relation_q052_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:indicates ent:e_reservatorios_carbonaticos_b1962a .
+q:q052 pq:hasRelation res:relation_q052_4 .
+
+res:relation_q052_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_reservatorios_carbonaticos_b1962a rel:indicates ent:e_baixa_permeabilidade_68d997 .
+q:q052 pq:hasRelation res:relation_q052_5 .
+
+res:relation_q052_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:indicates ent:e_selo_geologico_1ec974 .
+q:q052 pq:hasRelation res:relation_q052_6 .
+
+src:s_q052_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/22""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q052_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/quem-somos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q052_1 a pq:Evidence ;
+    pq:evidenceText """O Campo de Mero é uma importante área petrolífera na porção setentrional da Bacia de Santos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Mero: caracterização dos reservatórios e desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q052_1 .
+q:q052 pq:hasEvidence evid:ev_q052_1 .
+evid:ev_q052_1 pq:supportsQuestion q:q052 .
+
+evid:ev_q052_2 a pq:Evidence ;
+    pq:evidenceText """À época foram constatados reservatórios carbonáticos, pertencentes às Formações Barra Velha e Itapema, com excelentes qualidades permoporosa e uma coluna de óleo de cerca de 300 m.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Mero: caracterização dos reservatórios e desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q052_2 .
+q:q052 pq:hasEvidence evid:ev_q052_2 .
+evid:ev_q052_2 pq:supportsQuestion q:q052 .
+
+evid:ev_q052_3 a pq:Evidence ;
+    pq:evidenceText """A Bacia de Santos é a maior bacia sedimentar marítima brasileira, com uma área total de mais de 350 mil quilômetros quadrados e que se estende de Cabo Frio (RJ) a Florianópolis (SC).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Quem Somos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q052_2 .
+q:q052 pq:hasEvidence evid:ev_q052_3 .
+evid:ev_q052_3 pq:supportsQuestion q:q052 .

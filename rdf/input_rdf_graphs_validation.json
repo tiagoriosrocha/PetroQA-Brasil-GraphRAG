@@ -1,0 +1,16 @@
+{
+  "input_dataset": "/mnt/data/petroqa_brasil_graphrag_dataset/petroqa_brasil_graphrag_150.json",
+  "questions": 150,
+  "rdf_input_files": 150,
+  "forbidden_terms_total_files": 0,
+  "exact_expected_answer_string_present_files": 0,
+  "total_relations": 887,
+  "total_evidence": 426,
+  "geocore_namespace": "https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#",
+  "graphs_dir": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore/graphs",
+  "aggregated_graph": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore/petroqa_brasil_all_input_graphs_geocore.ttl",
+  "index_csv": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore/input_rdf_graph_index.csv",
+  "schema_file": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore/petroqa_input_graph_schema.ttl",
+  "geocore_compatibility_layer": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore/geocore_compatibility_layer.ttl",
+  "zip_file": "/mnt/data/petroqa_brasil_input_rdf_graphs_geocore.zip"
+}

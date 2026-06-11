@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q016 a pq:Question ;
+    pq:hasQuestionText """Que interpretação estrutural surge ao relacionar petróleo com óleo?""" ;
+    pq:hasInferenceType """estrutural_deposicional""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q016 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q016 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_coquinas_f4ac89 a geocore:AmountOfRock ;
+    rdfs:label """coquinas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q016 pq:mentionsEntity ent:e_coquinas_f4ac89 .
+
+ent:e_bivalves_71cdf2 a geocore:GeologicalStructure ;
+    rdfs:label """bivalves""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_bivalves_71cdf2 .
+
+ent:e_materia_organica_4be6c5 a geocore:GeologicalStructure ;
+    rdfs:label """matéria orgânica""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_materia_organica_4be6c5 .
+
+ent:e_tectonica_rifte_03570b a geocore:GeologicalStructure ;
+    rdfs:label """tectônica rifte""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_tectonica_rifte_03570b .
+
+ent:e_altos_estruturais_3bbf65 a geocore:GeologicalStructure ;
+    rdfs:label """altos estruturais""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_altos_estruturais_3bbf65 .
+
+ent:e_blocos_altos_falhados_2cc72a a geocore:GeologicalStructure ;
+    rdfs:label """blocos altos falhados""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_blocos_altos_falhados_2cc72a .
+
+ent:e_falhas_f136b1 a geocore:GeologicalStructure ;
+    rdfs:label """falhas""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q016 pq:mentionsEntity ent:e_falhas_f136b1 .
+
+res:path_q016_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_petroleo_9aa632 .
+q:q016 pq:hasReasoningStep res:path_q016_step_1 .
+
+res:path_q016_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_oleo_3c92fc .
+q:q016 pq:hasReasoningStep res:path_q016_step_2 .
+
+res:path_q016_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_coquinas_f4ac89 .
+q:q016 pq:hasReasoningStep res:path_q016_step_3 .
+
+res:path_q016_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bivalves_71cdf2 .
+q:q016 pq:hasReasoningStep res:path_q016_step_4 .
+
+res:path_q016_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_materia_organica_4be6c5 .
+q:q016 pq:hasReasoningStep res:path_q016_step_5 .
+
+ent:e_estrutura_geologica_87248f a geocore:GeologicalStructure ;
+    rdfs:label """estrutura geológica""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q016_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estrutura_geologica_87248f .
+q:q016 pq:hasReasoningStep res:path_q016_step_6 .
+
+ent:e_controle_estrutural_902029 a geocore:GeologicalStructure ;
+    rdfs:label """controle estrutural""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+
+res:path_q016_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_controle_estrutural_902029 .
+q:q016 pq:hasReasoningStep res:path_q016_step_7 .
+
+res:path_q016_step_1 pq:nextStep res:path_q016_step_2 .
+
+res:path_q016_step_2 pq:nextStep res:path_q016_step_3 .
+
+res:path_q016_step_3 pq:nextStep res:path_q016_step_4 .
+
+res:path_q016_step_4 pq:nextStep res:path_q016_step_5 .
+
+res:path_q016_step_5 pq:nextStep res:path_q016_step_6 .
+
+res:path_q016_step_6 pq:nextStep res:path_q016_step_7 .
+
+q:q016 pq:hasReasoningStart res:path_q016_step_1 ;
+    pq:hasReasoningEnd res:path_q016_step_7 .
+
+res:relation_q016_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_petroleo_9aa632 ;
+    pq:relationLabel """controls""" ;
+    pq:relationTail ent:e_oleo_3c92fc .
+ent:e_petroleo_9aa632 rel:controls ent:e_oleo_3c92fc .
+q:q016 pq:hasRelation res:relation_q016_1 .
+
+res:relation_q016_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_oleo_3c92fc ;
+    pq:relationLabel """influences_deposition""" ;
+    pq:relationTail ent:e_coquinas_f4ac89 .
+ent:e_oleo_3c92fc rel:influences_deposition ent:e_coquinas_f4ac89 .
+q:q016 pq:hasRelation res:relation_q016_2 .
+
+res:relation_q016_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_coquinas_f4ac89 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_bivalves_71cdf2 .
+ent:e_coquinas_f4ac89 rel:supports_interpretation ent:e_bivalves_71cdf2 .
+q:q016 pq:hasRelation res:relation_q016_3 .
+
+res:relation_q016_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bivalves_71cdf2 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_materia_organica_4be6c5 .
+ent:e_bivalves_71cdf2 rel:supports_interpretation ent:e_materia_organica_4be6c5 .
+q:q016 pq:hasRelation res:relation_q016_4 .
+
+res:relation_q016_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_materia_organica_4be6c5 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_estrutura_geologica_87248f .
+ent:e_materia_organica_4be6c5 rel:supports_interpretation ent:e_estrutura_geologica_87248f .
+q:q016 pq:hasRelation res:relation_q016_5 .
+
+res:relation_q016_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estrutura_geologica_87248f ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_controle_estrutural_902029 .
+ent:e_estrutura_geologica_87248f rel:supports_interpretation ent:e_controle_estrutural_902029 .
+q:q016 pq:hasRelation res:relation_q016_6 .
+
+src:s_q016_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/16""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q016_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Sistema_petrol%C3%ADfero""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q016_1 a pq:Evidence ;
+    pq:evidenceText """Depósitos bioclásticos de moluscos bivalves do Barremiano/Aptiano, denominados coquinas do andar local Jiquiá, ocorrem sobre blocos altos falhados, formados durante a tectônica rifte, em morfologias herdadas do embasamento, intercalados com fácies ricas em matéria orgânica em camadas conformantes contínuas nos baixos adjacentes, em ambiente de água doce a salobra.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q016_1 .
+q:q016 pq:hasEvidence evid:ev_q016_1 .
+evid:ev_q016_1 pq:supportsQuestion q:q016 .
+
+evid:ev_q016_2 a pq:Evidence ;
+    pq:evidenceText """Uma armadilha estrutural consiste de configurações geométricas de estruturas de rochas que acumulam o petróleo, não permitindo sua fuga.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q016_2 .
+q:q016 pq:hasEvidence evid:ev_q016_2 .
+evid:ev_q016_2 pq:supportsQuestion q:q016 .
+
+evid:ev_q016_3 a pq:Evidence ;
+    pq:evidenceText """Podem ser domos salinos, flancos de homoclinais ou ainda, diversos tipos de superposição de dobras e falhas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Sistema petrolífero | Wikipédia""" ;
+    pq:fromSource src:s_q016_2 .
+q:q016 pq:hasEvidence evid:ev_q016_3 .
+evid:ev_q016_3 pq:supportsQuestion q:q016 .

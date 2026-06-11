@@ -1,0 +1,124 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q113 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Que informação os fragmentos de rocha trazidos durante a sondagem ajudam a registrar?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """easy""" ;
+    pq:hasRetrievalScope """single_passage""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "2"^^xsd:integer .
+
+ent:e_eles_ab05b4 a geocore:GeologicalObject ;
+    rdfs:label """Eles""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q113 pq:mentionsEntity ent:e_eles_ab05b4 .
+
+res:path_q113_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_eles_ab05b4 .
+q:q113 pq:hasReasoningStep res:path_q113_step_1 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q113_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q113 pq:hasReasoningStep res:path_q113_step_2 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q113_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q113 pq:hasReasoningStep res:path_q113_step_3 .
+
+ent:e_interpretacao_inferencial_44d613 a geocore:GeologicalObject ;
+    rdfs:label """interpretação inferencial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q113_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_interpretacao_inferencial_44d613 .
+q:q113 pq:hasReasoningStep res:path_q113_step_4 .
+
+res:path_q113_step_1 pq:nextStep res:path_q113_step_2 .
+
+res:path_q113_step_2 pq:nextStep res:path_q113_step_3 .
+
+res:path_q113_step_3 pq:nextStep res:path_q113_step_4 .
+
+q:q113 pq:hasReasoningStart res:path_q113_step_1 ;
+    pq:hasReasoningEnd res:path_q113_step_4 .
+
+res:relation_q113_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_eles_ab05b4 ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_eles_ab05b4 rel:is_related_to ent:e_evidencia_textual_ca7e0c .
+q:q113 pq:hasRelation res:relation_q113_1 .
+
+res:relation_q113_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:supports ent:e_relacao_geologica_3434ab .
+q:q113 pq:hasRelation res:relation_q113_2 .
+
+res:relation_q113_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_relacao_geologica_3434ab ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_interpretacao_inferencial_44d613 .
+ent:e_relacao_geologica_3434ab rel:indicates ent:e_interpretacao_inferencial_44d613 .
+q:q113 pq:hasRelation res:relation_q113_3 .
+
+src:s_q113_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+evid:ev_q113_1 a pq:Evidence ;
+    pq:evidenceText """a lama de sondagem""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q113_1 .
+q:q113 pq:hasEvidence evid:ev_q113_1 .
+evid:ev_q113_1 pq:supportsQuestion q:q113 .
+
+evid:ev_q113_2 a pq:Evidence ;
+    pq:evidenceText """fragmentos de rocha""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q113_1 .
+q:q113 pq:hasEvidence evid:ev_q113_2 .
+evid:ev_q113_2 pq:supportsQuestion q:q113 .
+
+evid:ev_q113_3 a pq:Evidence ;
+    pq:evidenceText """para saber que tipo de rocha a coroa está atravessando.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q113_1 .
+q:q113 pq:hasEvidence evid:ev_q113_3 .
+evid:ev_q113_3 pq:supportsQuestion q:q113 .
+
+evid:ev_q113_4 a pq:Evidence ;
+    pq:evidenceText """anotando a profundidade de onde vieram.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo | SGB""" ;
+    pq:fromSource src:s_q113_1 .
+q:q113 pq:hasEvidence evid:ev_q113_4 .
+evid:ev_q113_4 pq:supportsQuestion q:q113 .

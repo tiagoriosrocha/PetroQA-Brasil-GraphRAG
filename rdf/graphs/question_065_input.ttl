@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q065 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Como a compartimentação de Mero se manifesta nos dados de poços?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_libra_4de447 a geocore:GeologicalObject ;
+    rdfs:label """Libra""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_libra_4de447 .
+
+ent:e_w735_65b17b a geocore:GeologicalObject ;
+    rdfs:label """W735""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_w735_65b17b .
+
+ent:e_w731_055d80 a geocore:GeologicalObject ;
+    rdfs:label """W731""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_w731_055d80 .
+
+ent:e_2_anp_2a_rjs_d2016a a geocore:GeologicalObject ;
+    rdfs:label """2-ANP-2A-RJS""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_2_anp_2a_rjs_d2016a .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_compartimentacao_58e90f a geocore:GeologicalStructure ;
+    rdfs:label """compartimentação""" ;
+    pq:geoCoreClass geocore:GeologicalStructure .
+q:q065 pq:mentionsEntity ent:e_compartimentacao_58e90f .
+
+ent:e_pressao_6d0b3d a geocore:GeologicalObject ;
+    rdfs:label """pressão""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_pressao_6d0b3d .
+
+ent:e_fluido_957529 a geocore:EarthFluid ;
+    rdfs:label """fluido""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q065 pq:mentionsEntity ent:e_fluido_957529 .
+
+ent:e_mero_22bca0 a geocore:GeologicalObject ;
+    rdfs:label """Mero""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q065 pq:mentionsEntity ent:e_mero_22bca0 .
+
+res:path_q065_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_libra_4de447 .
+q:q065 pq:hasReasoningStep res:path_q065_step_1 .
+
+res:path_q065_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_w735_65b17b .
+q:q065 pq:hasReasoningStep res:path_q065_step_2 .
+
+res:path_q065_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_w731_055d80 .
+q:q065 pq:hasReasoningStep res:path_q065_step_3 .
+
+res:path_q065_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_2_anp_2a_rjs_d2016a .
+q:q065 pq:hasReasoningStep res:path_q065_step_4 .
+
+res:path_q065_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q065 pq:hasReasoningStep res:path_q065_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q065_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q065 pq:hasReasoningStep res:path_q065_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q065_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q065 pq:hasReasoningStep res:path_q065_step_7 .
+
+res:path_q065_step_1 pq:nextStep res:path_q065_step_2 .
+
+res:path_q065_step_2 pq:nextStep res:path_q065_step_3 .
+
+res:path_q065_step_3 pq:nextStep res:path_q065_step_4 .
+
+res:path_q065_step_4 pq:nextStep res:path_q065_step_5 .
+
+res:path_q065_step_5 pq:nextStep res:path_q065_step_6 .
+
+res:path_q065_step_6 pq:nextStep res:path_q065_step_7 .
+
+q:q065 pq:hasReasoningStart res:path_q065_step_1 ;
+    pq:hasReasoningEnd res:path_q065_step_7 .
+
+res:relation_q065_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_libra_4de447 ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_w735_65b17b .
+ent:e_libra_4de447 rel:is_related_to ent:e_w735_65b17b .
+q:q065 pq:hasRelation res:relation_q065_1 .
+
+res:relation_q065_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_w735_65b17b ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_w731_055d80 .
+ent:e_w735_65b17b rel:supports ent:e_w731_055d80 .
+q:q065 pq:hasRelation res:relation_q065_2 .
+
+res:relation_q065_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_w731_055d80 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_2_anp_2a_rjs_d2016a .
+ent:e_w731_055d80 rel:indicates ent:e_2_anp_2a_rjs_d2016a .
+q:q065 pq:hasRelation res:relation_q065_3 .
+
+res:relation_q065_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_2_anp_2a_rjs_d2016a ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_2_anp_2a_rjs_d2016a rel:indicates ent:e_reservatorio_5ab1e2 .
+q:q065 pq:hasRelation res:relation_q065_4 .
+
+res:relation_q065_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_reservatorio_5ab1e2 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q065 pq:hasRelation res:relation_q065_5 .
+
+res:relation_q065_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q065 pq:hasRelation res:relation_q065_6 .
+
+src:s_q065_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/22""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q065_2 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q065_1 a pq:Evidence ;
+    pq:evidenceText """O primeiro poço perfurado na área, após a assinatura do contrato, foi o W731, que confirmou a continuidade dos reservatórios identificados no poço 2-ANP-2A-RJS, na porção Noroeste (NW) da estrutura de Libra.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Mero: caracterização dos reservatórios e desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q065_1 .
+q:q065 pq:hasEvidence evid:ev_q065_1 .
+evid:ev_q065_1 pq:supportsQuestion q:q065 .
+
+evid:ev_q065_2 a pq:Evidence ;
+    pq:evidenceText """No entanto, o segundo poço perfurado, o W735, localiza- do em seu compartimento central, identificou fluido e regime de pressão diferentes daqueles observados nos poços 2-ANP-2A-RJS e W731, configurando uma compartimentação importante na área e direcionando o Plano de Avaliação para a porção NW do bloco.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Mero: caracterização dos reservatórios e desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q065_2 .
+q:q065 pq:hasEvidence evid:ev_q065_2 .
+evid:ev_q065_2 pq:supportsQuestion q:q065 .
+
+evid:ev_q065_3 a pq:Evidence ;
+    pq:evidenceText """Os desafios de caracterização desses reservatórios envolvem a integração dos estudos de sísmica, dados de poços, petrografia, interpretações de processos deposicionais e diagenéticos, assim como os resultados de testes de produtividade e injetividades das rochas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q065_2 .
+q:q065 pq:hasEvidence evid:ev_q065_3 .
+evid:ev_q065_3 pq:supportsQuestion q:q065 .

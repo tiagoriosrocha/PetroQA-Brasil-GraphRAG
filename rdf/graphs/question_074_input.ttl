@@ -1,0 +1,170 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q074 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar Bacia de Campos, deposição e Bacia?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q074 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_deposicao_4b0fd8 a geocore:GeologicalProcess ;
+    rdfs:label """deposição""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q074 pq:mentionsEntity ent:e_deposicao_4b0fd8 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q074 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q074 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_reconhece_se_a68aa0 a geocore:GeologicalAge ;
+    rdfs:label """Reconhece-se""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q074 pq:mentionsEntity ent:e_reconhece_se_a68aa0 .
+
+res:path_q074_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q074 pq:hasReasoningStep res:path_q074_step_1 .
+
+res:path_q074_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_deposicao_4b0fd8 .
+q:q074 pq:hasReasoningStep res:path_q074_step_2 .
+
+res:path_q074_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_4de25b .
+q:q074 pq:hasReasoningStep res:path_q074_step_3 .
+
+res:path_q074_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campos_827360 .
+q:q074 pq:hasReasoningStep res:path_q074_step_4 .
+
+res:path_q074_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reconhece_se_a68aa0 .
+q:q074 pq:hasReasoningStep res:path_q074_step_5 .
+
+ent:e_posicao_estratigrafica_b788eb a geocore:GeologicalAge ;
+    rdfs:label """posição estratigráfica""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q074_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_estratigrafica_b788eb .
+q:q074 pq:hasReasoningStep res:path_q074_step_6 .
+
+ent:e_idade_relativa_7cca4b a geocore:GeologicalAge ;
+    rdfs:label """idade relativa""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q074_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_idade_relativa_7cca4b .
+q:q074 pq:hasReasoningStep res:path_q074_step_7 .
+
+res:path_q074_step_1 pq:nextStep res:path_q074_step_2 .
+
+res:path_q074_step_2 pq:nextStep res:path_q074_step_3 .
+
+res:path_q074_step_3 pq:nextStep res:path_q074_step_4 .
+
+res:path_q074_step_4 pq:nextStep res:path_q074_step_5 .
+
+res:path_q074_step_5 pq:nextStep res:path_q074_step_6 .
+
+res:path_q074_step_6 pq:nextStep res:path_q074_step_7 .
+
+q:q074 pq:hasReasoningStart res:path_q074_step_1 ;
+    pq:hasReasoningEnd res:path_q074_step_7 .
+
+res:relation_q074_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_deposicao_4b0fd8 .
+ent:e_bacia_de_campos_2a27b8 rel:precedes_or_underlies ent:e_deposicao_4b0fd8 .
+q:q074 pq:hasRelation res:relation_q074_1 .
+
+res:relation_q074_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_deposicao_4b0fd8 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_bacia_4de25b .
+ent:e_deposicao_4b0fd8 rel:indicates ent:e_bacia_4de25b .
+q:q074 pq:hasRelation res:relation_q074_2 .
+
+res:relation_q074_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_4de25b ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_campos_827360 .
+ent:e_bacia_4de25b rel:supports ent:e_campos_827360 .
+q:q074 pq:hasRelation res:relation_q074_3 .
+
+res:relation_q074_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campos_827360 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_reconhece_se_a68aa0 .
+ent:e_campos_827360 rel:supports ent:e_reconhece_se_a68aa0 .
+q:q074 pq:hasRelation res:relation_q074_4 .
+
+res:relation_q074_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reconhece_se_a68aa0 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_posicao_estratigrafica_b788eb .
+ent:e_reconhece_se_a68aa0 rel:supports ent:e_posicao_estratigrafica_b788eb .
+q:q074 pq:hasRelation res:relation_q074_5 .
+
+res:relation_q074_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_estratigrafica_b788eb ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_idade_relativa_7cca4b .
+ent:e_posicao_estratigrafica_b788eb rel:supports ent:e_idade_relativa_7cca4b .
+q:q074 pq:hasRelation res:relation_q074_6 .
+
+src:s_q074_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q074_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/rochas""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q074_1 a pq:Evidence ;
+    pq:evidenceText """Reconhece-se quatro estágios geológicos evolutivos na bacia de Campos, que são pré-rifte (continental), rifte (continental), proto-oceânico (transicional evaporítico) e drift (marinho).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q074_1 .
+q:q074 pq:hasEvidence evid:ev_q074_1 .
+evid:ev_q074_1 pq:supportsQuestion q:q074 .
+
+evid:ev_q074_2 a pq:Evidence ;
+    pq:evidenceText """O mais extenso e mais duradouro dos ambientes de deposição é o marinho.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Rochas | SGB""" ;
+    pq:fromSource src:s_q074_2 .
+q:q074 pq:hasEvidence evid:ev_q074_2 .
+evid:ev_q074_2 pq:supportsQuestion q:q074 .

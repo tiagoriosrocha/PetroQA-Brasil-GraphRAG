@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q078 a pq:Question ;
+    pq:hasQuestionText """Que unidade ou entidade estratigráfica conecta Bacia de Campos à interpretação apresentada nas evidências?""" ;
+    pq:hasInferenceType """entidade_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q078 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_coquinas_f4ac89 a geocore:AmountOfRock ;
+    rdfs:label """coquinas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q078 pq:mentionsEntity ent:e_coquinas_f4ac89 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_camada_8fc6c8 a geocore:GeologicalObject ;
+    rdfs:label """Camada""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_camada_8fc6c8 .
+
+ent:e_albiano_947d0c a geocore:GeologicalObject ;
+    rdfs:label """Albiano""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q078 pq:mentionsEntity ent:e_albiano_947d0c .
+
+ent:e_aptiano_43ebee a geocore:GeologicalAge ;
+    rdfs:label """Aptiano""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q078 pq:mentionsEntity ent:e_aptiano_43ebee .
+
+res:path_q078_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q078 pq:hasReasoningStep res:path_q078_step_1 .
+
+res:path_q078_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q078 pq:hasReasoningStep res:path_q078_step_2 .
+
+res:path_q078_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q078 pq:hasReasoningStep res:path_q078_step_3 .
+
+res:path_q078_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_coquinas_f4ac89 .
+q:q078 pq:hasReasoningStep res:path_q078_step_4 .
+
+res:path_q078_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_4de25b .
+q:q078 pq:hasReasoningStep res:path_q078_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q078_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q078 pq:hasReasoningStep res:path_q078_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q078_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q078 pq:hasReasoningStep res:path_q078_step_7 .
+
+res:path_q078_step_1 pq:nextStep res:path_q078_step_2 .
+
+res:path_q078_step_2 pq:nextStep res:path_q078_step_3 .
+
+res:path_q078_step_3 pq:nextStep res:path_q078_step_4 .
+
+res:path_q078_step_4 pq:nextStep res:path_q078_step_5 .
+
+res:path_q078_step_5 pq:nextStep res:path_q078_step_6 .
+
+res:path_q078_step_6 pq:nextStep res:path_q078_step_7 .
+
+q:q078 pq:hasReasoningStart res:path_q078_step_1 ;
+    pq:hasReasoningEnd res:path_q078_step_7 .
+
+res:relation_q078_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """belongs_to""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_de_campos_2a27b8 rel:belongs_to ent:e_pre_sal_535e0b .
+q:q078 pq:hasRelation res:relation_q078_1 .
+
+res:relation_q078_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """contains_or_relates_to""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_pre_sal_535e0b rel:contains_or_relates_to ent:e_reservatorio_5ab1e2 .
+q:q078 pq:hasRelation res:relation_q078_2 .
+
+res:relation_q078_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_coquinas_f4ac89 .
+ent:e_reservatorio_5ab1e2 rel:supports_interpretation ent:e_coquinas_f4ac89 .
+q:q078 pq:hasRelation res:relation_q078_3 .
+
+res:relation_q078_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_coquinas_f4ac89 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_bacia_4de25b .
+ent:e_coquinas_f4ac89 rel:supports_interpretation ent:e_bacia_4de25b .
+q:q078 pq:hasRelation res:relation_q078_4 .
+
+res:relation_q078_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_4de25b ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_bacia_4de25b rel:supports_interpretation ent:e_baixa_permeabilidade_68d997 .
+q:q078 pq:hasRelation res:relation_q078_5 .
+
+res:relation_q078_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:supports_interpretation ent:e_selo_geologico_1ec974 .
+q:q078 pq:hasRelation res:relation_q078_6 .
+
+src:s_q078_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q078_2 a pq:Source ;
+    pq:sourceURL """https://petrobras.com.br/pre-sal""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q078_1 a pq:Evidence ;
+    pq:evidenceText """As principais rochas reservatório da bacia são arenitos turbidíticos, depositados desde o andar geológico Albiano até o Mioceno, seguidos de calcarenitos, depositados durante o andar Albiano, calcáreos de origem microbial, principalmente cianobactérias, depositadas durante o andar Aptiano e de coquinas, rochas formadas por restos de carapaças de crustáceos, e que foram depositadas durante o andar Barremiano.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q078_1 .
+q:q078 pq:hasEvidence evid:ev_q078_1 .
+evid:ev_q078_1 pq:supportsQuestion q:q078 .
+
+evid:ev_q078_2 a pq:Evidence ;
+    pq:evidenceText """Tanto as coquinas quanto os calcáreos microbiais são informalmente denominados como Camada pré-sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q078_2 .
+q:q078 pq:hasEvidence evid:ev_q078_2 .
+evid:ev_q078_2 pq:supportsQuestion q:q078 .
+
+evid:ev_q078_3 a pq:Evidence ;
+    pq:evidenceText """Tanto as conchas calcárias quanto as rochas calcárias compõem os principais reservatórios do pré-sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal: mergulhe nessa jornada ultraprofunda | Petrobras""" ;
+    pq:fromSource src:s_q078_2 .
+q:q078 pq:hasEvidence evid:ev_q078_3 .
+evid:ev_q078_3 pq:supportsQuestion q:q078 .

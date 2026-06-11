@@ -1,0 +1,193 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q091 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar reservatório, coquinas e deposição?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q091 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_coquinas_f4ac89 a geocore:AmountOfRock ;
+    rdfs:label """coquinas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q091 pq:mentionsEntity ent:e_coquinas_f4ac89 .
+
+ent:e_deposicao_4b0fd8 a geocore:GeologicalProcess ;
+    rdfs:label """deposição""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q091 pq:mentionsEntity ent:e_deposicao_4b0fd8 .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q091 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_arenitos_18cca6 a geocore:AmountOfRock ;
+    rdfs:label """Arenitos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q091 pq:mentionsEntity ent:e_arenitos_18cca6 .
+
+ent:e_albiano_947d0c a geocore:GeologicalAge ;
+    rdfs:label """Albiano""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q091 pq:mentionsEntity ent:e_albiano_947d0c .
+
+ent:e_aptiano_43ebee a geocore:GeologicalAge ;
+    rdfs:label """Aptiano""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q091 pq:mentionsEntity ent:e_aptiano_43ebee .
+
+ent:e_esse_feaf25 a geocore:GeologicalAge ;
+    rdfs:label """Esse""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q091 pq:mentionsEntity ent:e_esse_feaf25 .
+
+res:path_q091_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q091 pq:hasReasoningStep res:path_q091_step_1 .
+
+res:path_q091_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_coquinas_f4ac89 .
+q:q091 pq:hasReasoningStep res:path_q091_step_2 .
+
+res:path_q091_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_deposicao_4b0fd8 .
+q:q091 pq:hasReasoningStep res:path_q091_step_3 .
+
+res:path_q091_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campos_827360 .
+q:q091 pq:hasReasoningStep res:path_q091_step_4 .
+
+res:path_q091_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_arenitos_18cca6 .
+q:q091 pq:hasReasoningStep res:path_q091_step_5 .
+
+ent:e_posicao_estratigrafica_b788eb a geocore:GeologicalAge ;
+    rdfs:label """posição estratigráfica""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q091_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_estratigrafica_b788eb .
+q:q091 pq:hasReasoningStep res:path_q091_step_6 .
+
+ent:e_idade_relativa_7cca4b a geocore:GeologicalAge ;
+    rdfs:label """idade relativa""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q091_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_idade_relativa_7cca4b .
+q:q091 pq:hasReasoningStep res:path_q091_step_7 .
+
+res:path_q091_step_1 pq:nextStep res:path_q091_step_2 .
+
+res:path_q091_step_2 pq:nextStep res:path_q091_step_3 .
+
+res:path_q091_step_3 pq:nextStep res:path_q091_step_4 .
+
+res:path_q091_step_4 pq:nextStep res:path_q091_step_5 .
+
+res:path_q091_step_5 pq:nextStep res:path_q091_step_6 .
+
+res:path_q091_step_6 pq:nextStep res:path_q091_step_7 .
+
+q:q091 pq:hasReasoningStart res:path_q091_step_1 ;
+    pq:hasReasoningEnd res:path_q091_step_7 .
+
+res:relation_q091_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_coquinas_f4ac89 .
+ent:e_reservatorio_5ab1e2 rel:precedes_or_underlies ent:e_coquinas_f4ac89 .
+q:q091 pq:hasRelation res:relation_q091_1 .
+
+res:relation_q091_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_coquinas_f4ac89 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_deposicao_4b0fd8 .
+ent:e_coquinas_f4ac89 rel:indicates ent:e_deposicao_4b0fd8 .
+q:q091 pq:hasRelation res:relation_q091_2 .
+
+res:relation_q091_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_deposicao_4b0fd8 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_campos_827360 .
+ent:e_deposicao_4b0fd8 rel:supports ent:e_campos_827360 .
+q:q091 pq:hasRelation res:relation_q091_3 .
+
+res:relation_q091_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campos_827360 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_arenitos_18cca6 .
+ent:e_campos_827360 rel:supports ent:e_arenitos_18cca6 .
+q:q091 pq:hasRelation res:relation_q091_4 .
+
+res:relation_q091_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_arenitos_18cca6 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_posicao_estratigrafica_b788eb .
+ent:e_arenitos_18cca6 rel:supports ent:e_posicao_estratigrafica_b788eb .
+q:q091 pq:hasRelation res:relation_q091_5 .
+
+res:relation_q091_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_estratigrafica_b788eb ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_idade_relativa_7cca4b .
+ent:e_posicao_estratigrafica_b788eb rel:supports ent:e_idade_relativa_7cca4b .
+q:q091 pq:hasRelation res:relation_q091_6 .
+
+src:s_q091_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q091_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/como-sabemos-a-idade-das-rochas""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q091_1 a pq:Evidence ;
+    pq:evidenceText """As principais rochas reservatório da bacia são arenitos turbidíticos, depositados desde o andar geológico Albiano até o Mioceno, seguidos de calcarenitos, depositados durante o andar Albiano, calcáreos de origem microbial, principalmente cianobactérias, depositadas durante o andar Aptiano e de coquinas, rochas formadas por restos de carapaças de crustáceos, e que foram depositadas durante o andar Barremiano.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q091_1 .
+q:q091 pq:hasEvidence evid:ev_q091_1 .
+evid:ev_q091_1 pq:supportsQuestion q:q091 .
+
+evid:ev_q091_2 a pq:Evidence ;
+    pq:evidenceText """As rochas sedimentares formam-se pela deposição de sedimentos (cascalho, areia, argila etc.) ao longo do tempo, trazidos por agentes transportadores, como as águas de um rio, o vento e as geleiras.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Como Sabemos a Idade das Rochas? | SGB""" ;
+    pq:fromSource src:s_q091_2 .
+q:q091 pq:hasEvidence evid:ev_q091_2 .
+evid:ev_q091_2 pq:supportsQuestion q:q091 .
+
+evid:ev_q091_3 a pq:Evidence ;
+    pq:evidenceText """Esse material vai sendo empilhado e, naturalmente, quanto mais embaixo ele estiver na pilha mais antigo ele é.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Como Sabemos a Idade das Rochas? | SGB""" ;
+    pq:fromSource src:s_q091_2 .
+q:q091 pq:hasEvidence evid:ev_q091_3 .
+evid:ev_q091_3 pq:supportsQuestion q:q091 .

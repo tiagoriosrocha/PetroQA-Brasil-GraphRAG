@@ -1,0 +1,41 @@
+{
+  "total_items": 150,
+  "difficulty_distribution": {
+    "hard": 139,
+    "medium": 10,
+    "easy": 1
+  },
+  "retrieval_scope_distribution": {
+    "multi_document": 139,
+    "multi_passage": 8,
+    "single_passage": 3
+  },
+  "requires_ontology_distribution": {
+    "True": 131,
+    "False": 19
+  },
+  "num_hops_distribution": {
+    "4": 139,
+    "3": 10,
+    "2": 1
+  },
+  "inference_type_distribution": {
+    "selo_e_retencao": 8,
+    "geracao_de_hidrocarbonetos": 2,
+    "composicional_petrofisica": 30,
+    "ambiente_deposicional": 6,
+    "temporal_estratigrafica": 19,
+    "processual_migracao": 4,
+    "interpretativa": 27,
+    "espacial": 19,
+    "espacial_deposicional": 2,
+    "estrutural_deposicional": 2,
+    "diferenciacao_funcional": 1,
+    "ontologica_entidade_funcao": 7,
+    "processual_deposicional": 3,
+    "entidade_estratigrafica": 13,
+    "entidade_funcao": 3,
+    "espacial_administrativa": 1,
+    "estrutural": 3
+  }
+}

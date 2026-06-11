@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q060 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar Bacia de Santos, reservatório e reservatórios carbonáticos?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q060 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q060 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q060 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_carbonaticas_8d4c1d a geocore:AmountOfRock ;
+    rdfs:label """carbonáticas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q060 pq:mentionsEntity ent:e_carbonaticas_8d4c1d .
+
+ent:e_rifteamento_235827 a geocore:GeologicalProcess ;
+    rdfs:label """rifteamento""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q060 pq:mentionsEntity ent:e_rifteamento_235827 .
+
+ent:e_buzios_199947 a geocore:GeologicalAge ;
+    rdfs:label """Búzios""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q060 pq:mentionsEntity ent:e_buzios_199947 .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q060 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_itapema_b8d12d a geocore:GeologicalAge ;
+    rdfs:label """Itapema""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q060 pq:mentionsEntity ent:e_itapema_b8d12d .
+
+ent:e_barra_velha_397698 a geocore:GeologicalAge ;
+    rdfs:label """Barra Velha""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q060 pq:mentionsEntity ent:e_barra_velha_397698 .
+
+res:path_q060_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q060 pq:hasReasoningStep res:path_q060_step_1 .
+
+res:path_q060_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q060 pq:hasReasoningStep res:path_q060_step_2 .
+
+res:path_q060_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q060 pq:hasReasoningStep res:path_q060_step_3 .
+
+res:path_q060_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonaticas_8d4c1d .
+q:q060 pq:hasReasoningStep res:path_q060_step_4 .
+
+res:path_q060_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_rifteamento_235827 .
+q:q060 pq:hasReasoningStep res:path_q060_step_5 .
+
+ent:e_posicao_estratigrafica_b788eb a geocore:GeologicalAge ;
+    rdfs:label """posição estratigráfica""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q060_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_estratigrafica_b788eb .
+q:q060 pq:hasReasoningStep res:path_q060_step_6 .
+
+ent:e_idade_relativa_7cca4b a geocore:GeologicalAge ;
+    rdfs:label """idade relativa""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q060_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_idade_relativa_7cca4b .
+q:q060 pq:hasReasoningStep res:path_q060_step_7 .
+
+res:path_q060_step_1 pq:nextStep res:path_q060_step_2 .
+
+res:path_q060_step_2 pq:nextStep res:path_q060_step_3 .
+
+res:path_q060_step_3 pq:nextStep res:path_q060_step_4 .
+
+res:path_q060_step_4 pq:nextStep res:path_q060_step_5 .
+
+res:path_q060_step_5 pq:nextStep res:path_q060_step_6 .
+
+res:path_q060_step_6 pq:nextStep res:path_q060_step_7 .
+
+q:q060 pq:hasReasoningStart res:path_q060_step_1 ;
+    pq:hasReasoningEnd res:path_q060_step_7 .
+
+res:relation_q060_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_bacia_de_santos_564a2f rel:precedes_or_underlies ent:e_reservatorio_5ab1e2 .
+q:q060 pq:hasRelation res:relation_q060_1 .
+
+res:relation_q060_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:indicates ent:e_reservatorios_carbonaticos_b1962a .
+q:q060 pq:hasRelation res:relation_q060_2 .
+
+res:relation_q060_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_carbonaticas_8d4c1d .
+ent:e_reservatorios_carbonaticos_b1962a rel:supports ent:e_carbonaticas_8d4c1d .
+q:q060 pq:hasRelation res:relation_q060_3 .
+
+res:relation_q060_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonaticas_8d4c1d ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_rifteamento_235827 .
+ent:e_carbonaticas_8d4c1d rel:supports ent:e_rifteamento_235827 .
+q:q060 pq:hasRelation res:relation_q060_4 .
+
+res:relation_q060_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_rifteamento_235827 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_posicao_estratigrafica_b788eb .
+ent:e_rifteamento_235827 rel:supports ent:e_posicao_estratigrafica_b788eb .
+q:q060 pq:hasRelation res:relation_q060_5 .
+
+res:relation_q060_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_estratigrafica_b788eb ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_idade_relativa_7cca4b .
+ent:e_posicao_estratigrafica_b788eb rel:supports ent:e_idade_relativa_7cca4b .
+q:q060 pq:hasRelation res:relation_q060_6 .
+
+src:s_q060_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q060_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/quem-somos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q060_1 a pq:Evidence ;
+    pq:evidenceText """Os reservatórios são rochas carbonáticas de origem lacustre (idade aptiana), depositadas durante o rifteamento oblíquo de abertura da Bacia de Santos e compreende às formações Itapema (Sequência K38) e Barra Velha (Sequências K44 e K46/K48).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q060_1 .
+q:q060 pq:hasEvidence evid:ev_q060_1 .
+evid:ev_q060_1 pq:supportsQuestion q:q060 .
+
+evid:ev_q060_2 a pq:Evidence ;
+    pq:evidenceText """Formada há mais de 130 milhões de anos, após o início da separação de América do Sul e África, a Bacia de Santos é uma típica bacia sedimentar de margem atlântica, apresentando, porém, uma evolução geológica diferente das bacias de Campos e Pelotas, localizadas respectivamente a norte e sul.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Quem Somos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q060_2 .
+q:q060 pq:hasEvidence evid:ev_q060_2 .
+evid:ev_q060_2 pq:supportsQuestion q:q060 .

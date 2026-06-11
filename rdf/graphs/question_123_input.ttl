@@ -1,0 +1,150 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q123 a pq:Question ;
+    pq:hasQuestionText """Que ambiente deposicional é sugerido pela associação entre turbidito, deposição e Turbiditos?""" ;
+    pq:hasInferenceType """ambiente_deposicional""" ;
+    pq:hasDifficulty """medium""" ;
+    pq:hasRetrievalScope """multi_passage""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "3"^^xsd:integer .
+
+ent:e_turbidito_87f8eb a geocore:GeologicalObject ;
+    rdfs:label """turbidito""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q123 pq:mentionsEntity ent:e_turbidito_87f8eb .
+
+ent:e_deposicao_4b0fd8 a geocore:GeologicalProcess ;
+    rdfs:label """deposição""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q123 pq:mentionsEntity ent:e_deposicao_4b0fd8 .
+
+ent:e_turbiditos_de9820 a geocore:GeologicalObject ;
+    rdfs:label """Turbiditos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q123 pq:mentionsEntity ent:e_turbiditos_de9820 .
+
+res:path_q123_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_turbidito_87f8eb .
+q:q123 pq:hasReasoningStep res:path_q123_step_1 .
+
+res:path_q123_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_deposicao_4b0fd8 .
+q:q123 pq:hasReasoningStep res:path_q123_step_2 .
+
+res:path_q123_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_turbiditos_de9820 .
+q:q123 pq:hasReasoningStep res:path_q123_step_3 .
+
+ent:e_processo_deposicional_0a962b a geocore:GeologicalProcess ;
+    rdfs:label """processo deposicional""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+
+res:path_q123_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_processo_deposicional_0a962b .
+q:q123 pq:hasReasoningStep res:path_q123_step_4 .
+
+ent:e_evento_geologico_5de000 a geocore:GeologicalObject ;
+    rdfs:label """evento geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q123_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evento_geologico_5de000 .
+q:q123 pq:hasReasoningStep res:path_q123_step_5 .
+
+ent:e_interpretacao_processual_86de60 a geocore:GeologicalObject ;
+    rdfs:label """interpretação processual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q123_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_interpretacao_processual_86de60 .
+q:q123 pq:hasReasoningStep res:path_q123_step_6 .
+
+res:path_q123_step_1 pq:nextStep res:path_q123_step_2 .
+
+res:path_q123_step_2 pq:nextStep res:path_q123_step_3 .
+
+res:path_q123_step_3 pq:nextStep res:path_q123_step_4 .
+
+res:path_q123_step_4 pq:nextStep res:path_q123_step_5 .
+
+res:path_q123_step_5 pq:nextStep res:path_q123_step_6 .
+
+q:q123 pq:hasReasoningStart res:path_q123_step_1 ;
+    pq:hasReasoningEnd res:path_q123_step_6 .
+
+res:relation_q123_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_turbidito_87f8eb ;
+    pq:relationLabel """is_associated_with""" ;
+    pq:relationTail ent:e_deposicao_4b0fd8 .
+ent:e_turbidito_87f8eb rel:is_associated_with ent:e_deposicao_4b0fd8 .
+q:q123 pq:hasRelation res:relation_q123_1 .
+
+res:relation_q123_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_deposicao_4b0fd8 ;
+    pq:relationLabel """indicates_environment""" ;
+    pq:relationTail ent:e_turbiditos_de9820 .
+ent:e_deposicao_4b0fd8 rel:indicates_environment ent:e_turbiditos_de9820 .
+q:q123 pq:hasRelation res:relation_q123_2 .
+
+res:relation_q123_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_turbiditos_de9820 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_processo_deposicional_0a962b .
+ent:e_turbiditos_de9820 rel:supports_interpretation ent:e_processo_deposicional_0a962b .
+q:q123 pq:hasRelation res:relation_q123_3 .
+
+res:relation_q123_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_processo_deposicional_0a962b ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_evento_geologico_5de000 .
+ent:e_processo_deposicional_0a962b rel:supports_interpretation ent:e_evento_geologico_5de000 .
+q:q123 pq:hasRelation res:relation_q123_4 .
+
+res:relation_q123_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evento_geologico_5de000 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_interpretacao_processual_86de60 .
+ent:e_evento_geologico_5de000 rel:supports_interpretation ent:e_interpretacao_processual_86de60 .
+q:q123 pq:hasRelation res:relation_q123_5 .
+
+src:s_q123_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/rochas""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q123_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Turbidito""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q123_1 a pq:Evidence ;
+    pq:evidenceText """O mais extenso e mais duradouro dos ambientes de deposição é o marinho.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Rochas | SGB""" ;
+    pq:fromSource src:s_q123_1 .
+q:q123 pq:hasEvidence evid:ev_q123_1 .
+evid:ev_q123_1 pq:supportsQuestion q:q123 .
+
+evid:ev_q123_2 a pq:Evidence ;
+    pq:evidenceText """Turbiditos são depósitos sedimentares originados por correntes de turbidez submarinas, sobretudo em bacias de antepaís (foreland), em ambiente tectônico de margem convergente (ativa).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Turbidito | Wikipédia""" ;
+    pq:fromSource src:s_q123_2 .
+q:q123 pq:hasEvidence evid:ev_q123_2 .
+evid:ev_q123_2 pq:supportsQuestion q:q123 .

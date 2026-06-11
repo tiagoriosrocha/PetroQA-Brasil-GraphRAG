@@ -1,0 +1,79 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# GeoCore-compatible class declarations used for PetroQA-Brasil input graphs.
+
+geocore:GeologicalObject a owl:Class ;
+    rdfs:label "geological object"@en ;
+    rdfs:label "objeto geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:GeologicalProcess a owl:Class ;
+    rdfs:label "geological process"@en ;
+    rdfs:label "processo geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:GeologicalAge a owl:Class ;
+    rdfs:label "geological age"@en ;
+    rdfs:label "idade geológica"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:GeologicalStructure a owl:Class ;
+    rdfs:label "geological structure"@en ;
+    rdfs:label "estrutura geológica"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:GeologicalTimeInterval a owl:Class ;
+    rdfs:label "geological time interval"@en ;
+    rdfs:label "intervalo de tempo geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:EarthMaterial a owl:Class ;
+    rdfs:label "earth material"@en ;
+    rdfs:label "material geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:AmountOfMineral a owl:Class ;
+    rdfs:label "amount of mineral"@en ;
+    rdfs:label "quantidade de mineral"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> ;
+    rdfs:subClassOf geocore:EarthMaterial .
+
+geocore:AmountOfRock a owl:Class ;
+    rdfs:label "amount of rock"@en ;
+    rdfs:label "quantidade de rocha"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> ;
+    rdfs:subClassOf geocore:EarthMaterial .
+
+geocore:EarthFluid a owl:Class ;
+    rdfs:label "earth fluid"@en ;
+    rdfs:label "fluido da terra"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> ;
+    rdfs:subClassOf geocore:EarthMaterial .
+
+geocore:UnconsolidatedEarthMaterial a owl:Class ;
+    rdfs:label "unconsolidated earth material"@en ;
+    rdfs:label "material geológico inconsolidado"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> ;
+    rdfs:subClassOf geocore:EarthMaterial .
+
+geocore:GeologicalBoundary a owl:Class ;
+    rdfs:label "geological boundary"@en ;
+    rdfs:label "limite geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .
+
+geocore:GeologicalContact a owl:Class ;
+    rdfs:label "geological contact"@en ;
+    rdfs:label "contato geológico"@pt ;
+    rdfs:isDefinedBy <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl> .

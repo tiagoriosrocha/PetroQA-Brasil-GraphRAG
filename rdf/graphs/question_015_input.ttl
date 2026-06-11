@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q015 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar Formação Barra Velha com Formação Itapema?""" ;
+    pq:hasInferenceType """espacial_deposicional""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_formacao_barra_velha_5a0da3 a geocore:GeologicalObject ;
+    rdfs:label """Formação Barra Velha""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q015 pq:mentionsEntity ent:e_formacao_barra_velha_5a0da3 .
+
+ent:e_formacao_itapema_ca714d a geocore:GeologicalObject ;
+    rdfs:label """Formação Itapema""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q015 pq:mentionsEntity ent:e_formacao_itapema_ca714d .
+
+ent:e_carbonatos_cdf3bc a geocore:AmountOfRock ;
+    rdfs:label """carbonatos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_carbonatos_cdf3bc .
+
+ent:e_carbonaticas_8d4c1d a geocore:AmountOfRock ;
+    rdfs:label """carbonáticas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_carbonaticas_8d4c1d .
+
+ent:e_estromatolitos_500005 a geocore:AmountOfRock ;
+    rdfs:label """estromatólitos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_estromatolitos_500005 .
+
+ent:e_bivalves_71cdf2 a geocore:GeologicalObject ;
+    rdfs:label """bivalves""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q015 pq:mentionsEntity ent:e_bivalves_71cdf2 .
+
+ent:e_rudstones_3902ff a geocore:AmountOfRock ;
+    rdfs:label """rudstones""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_rudstones_3902ff .
+
+ent:e_grainstones_9fb982 a geocore:AmountOfRock ;
+    rdfs:label """grainstones""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_grainstones_9fb982 .
+
+ent:e_esferulititos_3049bf a geocore:AmountOfRock ;
+    rdfs:label """esferulititos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q015 pq:mentionsEntity ent:e_esferulititos_3049bf .
+
+res:path_q015_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_barra_velha_5a0da3 .
+q:q015 pq:hasReasoningStep res:path_q015_step_1 .
+
+res:path_q015_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_formacao_itapema_ca714d .
+q:q015 pq:hasReasoningStep res:path_q015_step_2 .
+
+res:path_q015_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonatos_cdf3bc .
+q:q015 pq:hasReasoningStep res:path_q015_step_3 .
+
+res:path_q015_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonaticas_8d4c1d .
+q:q015 pq:hasReasoningStep res:path_q015_step_4 .
+
+res:path_q015_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estromatolitos_500005 .
+q:q015 pq:hasReasoningStep res:path_q015_step_5 .
+
+ent:e_posicao_espacial_1a96fd a geocore:GeologicalObject ;
+    rdfs:label """posição espacial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q015_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_espacial_1a96fd .
+q:q015 pq:hasReasoningStep res:path_q015_step_6 .
+
+ent:e_relacao_entre_unidades_4596b3 a geocore:GeologicalAge ;
+    rdfs:label """relação entre unidades""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q015_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_entre_unidades_4596b3 .
+q:q015 pq:hasReasoningStep res:path_q015_step_7 .
+
+res:path_q015_step_1 pq:nextStep res:path_q015_step_2 .
+
+res:path_q015_step_2 pq:nextStep res:path_q015_step_3 .
+
+res:path_q015_step_3 pq:nextStep res:path_q015_step_4 .
+
+res:path_q015_step_4 pq:nextStep res:path_q015_step_5 .
+
+res:path_q015_step_5 pq:nextStep res:path_q015_step_6 .
+
+res:path_q015_step_6 pq:nextStep res:path_q015_step_7 .
+
+q:q015 pq:hasReasoningStart res:path_q015_step_1 ;
+    pq:hasReasoningEnd res:path_q015_step_7 .
+
+res:relation_q015_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_barra_velha_5a0da3 ;
+    pq:relationLabel """is_located_in""" ;
+    pq:relationTail ent:e_formacao_itapema_ca714d .
+ent:e_formacao_barra_velha_5a0da3 rel:is_located_in ent:e_formacao_itapema_ca714d .
+q:q015 pq:hasRelation res:relation_q015_1 .
+
+res:relation_q015_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_formacao_itapema_ca714d ;
+    pq:relationLabel """influences_deposition""" ;
+    pq:relationTail ent:e_carbonatos_cdf3bc .
+ent:e_formacao_itapema_ca714d rel:influences_deposition ent:e_carbonatos_cdf3bc .
+q:q015 pq:hasRelation res:relation_q015_2 .
+
+res:relation_q015_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonatos_cdf3bc ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_carbonaticas_8d4c1d .
+ent:e_carbonatos_cdf3bc rel:supports_interpretation ent:e_carbonaticas_8d4c1d .
+q:q015 pq:hasRelation res:relation_q015_3 .
+
+res:relation_q015_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonaticas_8d4c1d ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_estromatolitos_500005 .
+ent:e_carbonaticas_8d4c1d rel:supports_interpretation ent:e_estromatolitos_500005 .
+q:q015 pq:hasRelation res:relation_q015_4 .
+
+res:relation_q015_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estromatolitos_500005 ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_posicao_espacial_1a96fd .
+ent:e_estromatolitos_500005 rel:supports_interpretation ent:e_posicao_espacial_1a96fd .
+q:q015 pq:hasRelation res:relation_q015_5 .
+
+res:relation_q015_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_espacial_1a96fd ;
+    pq:relationLabel """supports_interpretation""" ;
+    pq:relationTail ent:e_relacao_entre_unidades_4596b3 .
+ent:e_posicao_espacial_1a96fd rel:supports_interpretation ent:e_relacao_entre_unidades_4596b3 .
+q:q015 pq:hasRelation res:relation_q015_6 .
+
+src:s_q015_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/16""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q015_2 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q015_1 a pq:Evidence ;
+    pq:evidenceText """As rochas carbonáticas do Aptiano, andar local Alagoas, são depósitos autóctones bioquímicos representados por laminitos e arbustos fasciculares (estromatolitos) que se depositaram em condições alcalinas, sobre altos herdados do embasamento e em contexto de subsidência térmica flexural com menor influência de falhas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Estratigrafia e modelos deposicionais carbonáticos do Pré-sal da Bacia de Santos | Universidade Petrobras""" ;
+    pq:fromSource src:s_q015_1 .
+q:q015 pq:hasEvidence evid:ev_q015_1 .
+evid:ev_q015_1 pq:supportsQuestion q:q015 .
+
+evid:ev_q015_2 a pq:Evidence ;
+    pq:evidenceText """Nos altos estruturais, a Formação Itapema é composta majoritariamente por rudstones e grainstones de bivalves e a Formação Barra Velha, por estromatólitos, grainstones intraclásticos e esferulititos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q015_2 .
+q:q015 pq:hasEvidence evid:ev_q015_2 .
+evid:ev_q015_2 pq:supportsQuestion q:q015 .

@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q029 a pq:Question ;
+    pq:hasQuestionText """Que relação entre composição, propriedade e função geológica pode ser inferida a partir de pré-sal?""" ;
+    pq:hasInferenceType """composicional_petrofisica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q029 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q029 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_halita_0a7c21 a geocore:AmountOfMineral ;
+    rdfs:label """halita""" ;
+    pq:geoCoreClass geocore:AmountOfMineral .
+q:q029 pq:mentionsEntity ent:e_halita_0a7c21 .
+
+ent:e_anidrita_83f24a a geocore:AmountOfMineral ;
+    rdfs:label """anidrita""" ;
+    pq:geoCoreClass geocore:AmountOfMineral .
+q:q029 pq:mentionsEntity ent:e_anidrita_83f24a .
+
+ent:e_barreira_c71711 a geocore:EarthMaterial ;
+    rdfs:label """barreira""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q029 pq:mentionsEntity ent:e_barreira_c71711 .
+
+ent:e_rocha_geradora_c577a9 a geocore:AmountOfRock ;
+    rdfs:label """rocha geradora""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q029 pq:mentionsEntity ent:e_rocha_geradora_c577a9 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q029 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q029 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_carbonatos_cdf3bc a geocore:AmountOfRock ;
+    rdfs:label """carbonatos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q029 pq:mentionsEntity ent:e_carbonatos_cdf3bc .
+
+res:path_q029_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q029 pq:hasReasoningStep res:path_q029_step_1 .
+
+res:path_q029_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q029 pq:hasReasoningStep res:path_q029_step_2 .
+
+res:path_q029_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_halita_0a7c21 .
+q:q029 pq:hasReasoningStep res:path_q029_step_3 .
+
+res:path_q029_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_anidrita_83f24a .
+q:q029 pq:hasReasoningStep res:path_q029_step_4 .
+
+res:path_q029_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_barreira_c71711 .
+q:q029 pq:hasReasoningStep res:path_q029_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q029_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q029 pq:hasReasoningStep res:path_q029_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q029_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q029 pq:hasReasoningStep res:path_q029_step_7 .
+
+res:path_q029_step_1 pq:nextStep res:path_q029_step_2 .
+
+res:path_q029_step_2 pq:nextStep res:path_q029_step_3 .
+
+res:path_q029_step_3 pq:nextStep res:path_q029_step_4 .
+
+res:path_q029_step_4 pq:nextStep res:path_q029_step_5 .
+
+res:path_q029_step_5 pq:nextStep res:path_q029_step_6 .
+
+res:path_q029_step_6 pq:nextStep res:path_q029_step_7 .
+
+q:q029 pq:hasReasoningStart res:path_q029_step_1 ;
+    pq:hasReasoningEnd res:path_q029_step_7 .
+
+res:relation_q029_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """is_composed_of_or_related_to""" ;
+    pq:relationTail ent:e_camada_de_sal_18df21 .
+ent:e_pre_sal_535e0b rel:is_composed_of_or_related_to ent:e_camada_de_sal_18df21 .
+q:q029 pq:hasRelation res:relation_q029_1 .
+
+res:relation_q029_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """has_property""" ;
+    pq:relationTail ent:e_halita_0a7c21 .
+ent:e_camada_de_sal_18df21 rel:has_property ent:e_halita_0a7c21 .
+q:q029 pq:hasRelation res:relation_q029_2 .
+
+res:relation_q029_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_halita_0a7c21 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_anidrita_83f24a .
+ent:e_halita_0a7c21 rel:supports_function ent:e_anidrita_83f24a .
+q:q029 pq:hasRelation res:relation_q029_3 .
+
+res:relation_q029_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_anidrita_83f24a ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_barreira_c71711 .
+ent:e_anidrita_83f24a rel:supports_function ent:e_barreira_c71711 .
+q:q029 pq:hasRelation res:relation_q029_4 .
+
+res:relation_q029_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_barreira_c71711 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_barreira_c71711 rel:supports_function ent:e_baixa_permeabilidade_68d997 .
+q:q029 pq:hasRelation res:relation_q029_5 .
+
+res:relation_q029_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:supports_function ent:e_selo_geologico_1ec974 .
+q:q029 pq:hasRelation res:relation_q029_6 .
+
+src:s_q029_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo-do-pre-sal""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q029_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Evaporito""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q029_1 a pq:Evidence ;
+    pq:evidenceText """Essa espessa camada de sal, formada principalmente de halita (cloreto de sódio, ou seja, o sal que usamos na comida) e anidrita (sulfato de cálcio) é uma barreira que se formou diretamente sobre a rocha geradora, impedindo que, neste caso, o petróleo migrasse.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo do Pré-Sal | SGB""" ;
+    pq:fromSource src:s_q029_1 .
+q:q029 pq:hasEvidence evid:ev_q029_1 .
+evid:ev_q029_1 pq:supportsQuestion q:q029 .
+
+evid:ev_q029_2 a pq:Evidence ;
+    pq:evidenceText """Seu precipitado gera depósitos de cloretos, sulfatos, boratos e carbonatos.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Evaporito | Wikipédia""" ;
+    pq:fromSource src:s_q029_2 .
+q:q029 pq:hasEvidence evid:ev_q029_2 .
+evid:ev_q029_2 pq:supportsQuestion q:q029 .

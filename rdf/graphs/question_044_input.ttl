@@ -1,0 +1,150 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q044 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Que conjunto de dados é necessário para caracterizar os reservatórios carbonáticos de Búzios?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """medium""" ;
+    pq:hasRetrievalScope """multi_passage""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "3"^^xsd:integer .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q044 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q044 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_estratigrafia_b6dd76 a geocore:GeologicalObject ;
+    rdfs:label """estratigrafia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q044 pq:mentionsEntity ent:e_estratigrafia_b6dd76 .
+
+res:path_q044_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q044 pq:hasReasoningStep res:path_q044_step_1 .
+
+res:path_q044_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q044 pq:hasReasoningStep res:path_q044_step_2 .
+
+res:path_q044_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estratigrafia_b6dd76 .
+q:q044 pq:hasReasoningStep res:path_q044_step_3 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q044_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q044 pq:hasReasoningStep res:path_q044_step_4 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q044_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q044 pq:hasReasoningStep res:path_q044_step_5 .
+
+ent:e_interpretacao_inferencial_44d613 a geocore:GeologicalObject ;
+    rdfs:label """interpretação inferencial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q044_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_interpretacao_inferencial_44d613 .
+q:q044 pq:hasReasoningStep res:path_q044_step_6 .
+
+res:path_q044_step_1 pq:nextStep res:path_q044_step_2 .
+
+res:path_q044_step_2 pq:nextStep res:path_q044_step_3 .
+
+res:path_q044_step_3 pq:nextStep res:path_q044_step_4 .
+
+res:path_q044_step_4 pq:nextStep res:path_q044_step_5 .
+
+res:path_q044_step_5 pq:nextStep res:path_q044_step_6 .
+
+q:q044 pq:hasReasoningStart res:path_q044_step_1 ;
+    pq:hasReasoningEnd res:path_q044_step_6 .
+
+res:relation_q044_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:is_related_to ent:e_reservatorios_carbonaticos_b1962a .
+q:q044 pq:hasRelation res:relation_q044_1 .
+
+res:relation_q044_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_estratigrafia_b6dd76 .
+ent:e_reservatorios_carbonaticos_b1962a rel:supports ent:e_estratigrafia_b6dd76 .
+q:q044 pq:hasRelation res:relation_q044_2 .
+
+res:relation_q044_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estratigrafia_b6dd76 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_estratigrafia_b6dd76 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q044 pq:hasRelation res:relation_q044_3 .
+
+res:relation_q044_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q044 pq:hasRelation res:relation_q044_4 .
+
+res:relation_q044_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_relacao_geologica_3434ab ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_interpretacao_inferencial_44d613 .
+ent:e_relacao_geologica_3434ab rel:indicates ent:e_interpretacao_inferencial_44d613 .
+q:q044 pq:hasRelation res:relation_q044_5 .
+
+src:s_q044_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q044_2 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/geologia""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q044_1 a pq:Evidence ;
+    pq:evidenceText """Os desafios de caracterização desses reservatórios envolvem a integração dos estudos de sísmica, dados de poços, petrografia, interpretações de processos deposicionais e diagenéticos, assim como os resultados de testes de produtividade e injetividades das rochas.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q044_1 .
+q:q044 pq:hasEvidence evid:ev_q044_1 .
+evid:ev_q044_1 pq:supportsQuestion q:q044 .
+
+evid:ev_q044_2 a pq:Evidence ;
+    pq:evidenceText """Tem como foco principal os estudos relacionados à evolução das bacias sedimentares, cuja compreensão requer estudos multidisciplinares de sedimentologia, estratigrafia, paleontologia, geofísica, geologia estrutural e geocronologia.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia | SGB""" ;
+    pq:fromSource src:s_q044_2 .
+q:q044 pq:hasEvidence evid:ev_q044_2 .
+evid:ev_q044_2 pq:supportsQuestion q:q044 .

@@ -1,0 +1,152 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q124 a pq:Question ;
+    pq:hasQuestionText """Que interpretação temporal pode ser obtida ao relacionar estratigrafia, fósseis e idade relativa?""" ;
+    pq:hasInferenceType """temporal_estratigrafica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "false"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_estratigrafia_b6dd76 a geocore:GeologicalAge ;
+    rdfs:label """estratigrafia""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q124 pq:mentionsEntity ent:e_estratigrafia_b6dd76 .
+
+ent:e_fosseis_a2ca9b a geocore:GeologicalAge ;
+    rdfs:label """fósseis""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q124 pq:mentionsEntity ent:e_fosseis_a2ca9b .
+
+ent:e_idade_relativa_7cca4b a geocore:GeologicalAge ;
+    rdfs:label """idade relativa""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q124 pq:mentionsEntity ent:e_idade_relativa_7cca4b .
+
+res:path_q124_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estratigrafia_b6dd76 .
+q:q124 pq:hasReasoningStep res:path_q124_step_1 .
+
+res:path_q124_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_fosseis_a2ca9b .
+q:q124 pq:hasReasoningStep res:path_q124_step_2 .
+
+res:path_q124_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_idade_relativa_7cca4b .
+q:q124 pq:hasReasoningStep res:path_q124_step_3 .
+
+ent:e_posicao_estratigrafica_b788eb a geocore:GeologicalAge ;
+    rdfs:label """posição estratigráfica""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q124_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_estratigrafica_b788eb .
+q:q124 pq:hasReasoningStep res:path_q124_step_4 .
+
+ent:e_interpretacao_temporal_667d3e a geocore:GeologicalAge ;
+    rdfs:label """interpretação temporal""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q124_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_interpretacao_temporal_667d3e .
+q:q124 pq:hasReasoningStep res:path_q124_step_5 .
+
+res:path_q124_step_1 pq:nextStep res:path_q124_step_2 .
+
+res:path_q124_step_2 pq:nextStep res:path_q124_step_3 .
+
+res:path_q124_step_3 pq:nextStep res:path_q124_step_4 .
+
+res:path_q124_step_4 pq:nextStep res:path_q124_step_5 .
+
+q:q124 pq:hasReasoningStart res:path_q124_step_1 ;
+    pq:hasReasoningEnd res:path_q124_step_5 .
+
+res:relation_q124_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estratigrafia_b6dd76 ;
+    pq:relationLabel """precedes_or_underlies""" ;
+    pq:relationTail ent:e_fosseis_a2ca9b .
+ent:e_estratigrafia_b6dd76 rel:precedes_or_underlies ent:e_fosseis_a2ca9b .
+q:q124 pq:hasRelation res:relation_q124_1 .
+
+res:relation_q124_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_fosseis_a2ca9b ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_idade_relativa_7cca4b .
+ent:e_fosseis_a2ca9b rel:indicates ent:e_idade_relativa_7cca4b .
+q:q124 pq:hasRelation res:relation_q124_2 .
+
+res:relation_q124_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_idade_relativa_7cca4b ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_posicao_estratigrafica_b788eb .
+ent:e_idade_relativa_7cca4b rel:supports ent:e_posicao_estratigrafica_b788eb .
+q:q124 pq:hasRelation res:relation_q124_3 .
+
+res:relation_q124_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_estratigrafica_b788eb ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_interpretacao_temporal_667d3e .
+ent:e_posicao_estratigrafica_b788eb rel:supports ent:e_interpretacao_temporal_667d3e .
+q:q124 pq:hasRelation res:relation_q124_4 .
+
+src:s_q124_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/geologia""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q124_2 a pq:Source ;
+    pq:sourceURL """https://geologia.ufes.br/isto-%C3%A9-geologia""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+src:s_q124_3 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/como-sabemos-a-idade-das-rochas""" ;
+    pq:sourceIndex "3"^^xsd:integer .
+
+evid:ev_q124_1 a pq:Evidence ;
+    pq:evidenceText """evolução das bacias sedimentares""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia | SGB""" ;
+    pq:fromSource src:s_q124_1 .
+q:q124 pq:hasEvidence evid:ev_q124_1 .
+evid:ev_q124_1 pq:supportsQuestion q:q124 .
+
+evid:ev_q124_2 a pq:Evidence ;
+    pq:evidenceText """sedimentologia, estratigrafia, paleontologia""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia | SGB""" ;
+    pq:fromSource src:s_q124_2 .
+q:q124 pq:hasEvidence evid:ev_q124_2 .
+evid:ev_q124_2 pq:supportsQuestion q:q124 .
+
+evid:ev_q124_3 a pq:Evidence ;
+    pq:evidenceText """o significado dos fósseis""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Isto é Geologia! | UFES""" ;
+    pq:fromSource src:s_q124_3 .
+q:q124 pq:hasEvidence evid:ev_q124_3 .
+evid:ev_q124_3 pq:supportsQuestion q:q124 .
+
+evid:ev_q124_4 a pq:Evidence ;
+    pq:evidenceText """quanto mais embaixo ele estiver na pilha mais antigo ele é.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Como Sabemos a Idade das Rochas? | SGB""" ;
+    pq:fromSource src:s_q124_3 .
+q:q124 pq:hasEvidence evid:ev_q124_4 .
+evid:ev_q124_4 pq:supportsQuestion q:q124 .

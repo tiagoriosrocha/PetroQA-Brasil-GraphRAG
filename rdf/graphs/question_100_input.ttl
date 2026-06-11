@@ -1,0 +1,198 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q100 a pq:Question ;
+    pq:hasQuestionText """Como as evidências conectam camada de sal à retenção ou migração de hidrocarbonetos?""" ;
+    pq:hasInferenceType """selo_e_retencao""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_camada_de_sal_18df21 a geocore:AmountOfRock ;
+    rdfs:label """camada de sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q100 pq:mentionsEntity ent:e_camada_de_sal_18df21 .
+
+ent:e_selo_1621cc a geocore:GeologicalObject ;
+    rdfs:label """selo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q100 pq:mentionsEntity ent:e_selo_1621cc .
+
+ent:e_trapa_0e6d2e a geocore:GeologicalObject ;
+    rdfs:label """trapa""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q100 pq:mentionsEntity ent:e_trapa_0e6d2e .
+
+ent:e_barreira_c71711 a geocore:GeologicalObject ;
+    rdfs:label """barreira""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q100 pq:mentionsEntity ent:e_barreira_c71711 .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q100 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q100 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_petroleo_9aa632 a geocore:EarthFluid ;
+    rdfs:label """petróleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q100 pq:mentionsEntity ent:e_petroleo_9aa632 .
+
+ent:e_oleo_3c92fc a geocore:EarthFluid ;
+    rdfs:label """óleo""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q100 pq:mentionsEntity ent:e_oleo_3c92fc .
+
+ent:e_migracao_6a31cc a geocore:GeologicalProcess ;
+    rdfs:label """migração""" ;
+    pq:geoCoreClass geocore:GeologicalProcess .
+q:q100 pq:mentionsEntity ent:e_migracao_6a31cc .
+
+res:path_q100_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_camada_de_sal_18df21 .
+q:q100 pq:hasReasoningStep res:path_q100_step_1 .
+
+res:path_q100_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_1621cc .
+q:q100 pq:hasReasoningStep res:path_q100_step_2 .
+
+res:path_q100_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_trapa_0e6d2e .
+q:q100 pq:hasReasoningStep res:path_q100_step_3 .
+
+res:path_q100_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_barreira_c71711 .
+q:q100 pq:hasReasoningStep res:path_q100_step_4 .
+
+res:path_q100_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q100 pq:hasReasoningStep res:path_q100_step_5 .
+
+ent:e_baixa_permeabilidade_68d997 a geocore:GeologicalAge ;
+    rdfs:label """baixa permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q100_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_baixa_permeabilidade_68d997 .
+q:q100 pq:hasReasoningStep res:path_q100_step_6 .
+
+ent:e_selo_geologico_1ec974 a geocore:GeologicalObject ;
+    rdfs:label """selo geológico""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q100_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_selo_geologico_1ec974 .
+q:q100 pq:hasReasoningStep res:path_q100_step_7 .
+
+res:path_q100_step_1 pq:nextStep res:path_q100_step_2 .
+
+res:path_q100_step_2 pq:nextStep res:path_q100_step_3 .
+
+res:path_q100_step_3 pq:nextStep res:path_q100_step_4 .
+
+res:path_q100_step_4 pq:nextStep res:path_q100_step_5 .
+
+res:path_q100_step_5 pq:nextStep res:path_q100_step_6 .
+
+res:path_q100_step_6 pq:nextStep res:path_q100_step_7 .
+
+q:q100 pq:hasReasoningStart res:path_q100_step_1 ;
+    pq:hasReasoningEnd res:path_q100_step_7 .
+
+res:relation_q100_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_camada_de_sal_18df21 ;
+    pq:relationLabel """acts_as""" ;
+    pq:relationTail ent:e_selo_1621cc .
+ent:e_camada_de_sal_18df21 rel:acts_as ent:e_selo_1621cc .
+q:q100 pq:hasRelation res:relation_q100_1 .
+
+res:relation_q100_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_selo_1621cc ;
+    pq:relationLabel """enables""" ;
+    pq:relationTail ent:e_trapa_0e6d2e .
+ent:e_selo_1621cc rel:enables ent:e_trapa_0e6d2e .
+q:q100 pq:hasRelation res:relation_q100_2 .
+
+res:relation_q100_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_trapa_0e6d2e ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_barreira_c71711 .
+ent:e_trapa_0e6d2e rel:prevents_or_retains ent:e_barreira_c71711 .
+q:q100 pq:hasRelation res:relation_q100_3 .
+
+res:relation_q100_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_barreira_c71711 ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_barreira_c71711 rel:prevents_or_retains ent:e_reservatorio_5ab1e2 .
+q:q100 pq:hasRelation res:relation_q100_4 .
+
+res:relation_q100_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_baixa_permeabilidade_68d997 .
+ent:e_reservatorio_5ab1e2 rel:prevents_or_retains ent:e_baixa_permeabilidade_68d997 .
+q:q100 pq:hasRelation res:relation_q100_5 .
+
+res:relation_q100_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_baixa_permeabilidade_68d997 ;
+    pq:relationLabel """prevents_or_retains""" ;
+    pq:relationTail ent:e_selo_geologico_1ec974 .
+ent:e_baixa_permeabilidade_68d997 rel:prevents_or_retains ent:e_selo_geologico_1ec974 .
+q:q100 pq:hasRelation res:relation_q100_6 .
+
+src:s_q100_1 a pq:Source ;
+    pq:sourceURL """https://www.sgb.gov.br/petroleo-do-pre-sal""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q100_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q100_1 a pq:Evidence ;
+    pq:evidenceText """Com isso, o petróleo migra para cima através dos poros existentes nas rochas, até encontrar algo que o impeça de continuar se deslocando.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo do Pré-Sal | SGB""" ;
+    pq:fromSource src:s_q100_1 .
+q:q100 pq:hasEvidence evid:ev_q100_1 .
+evid:ev_q100_1 pq:supportsQuestion q:q100 .
+
+evid:ev_q100_2 a pq:Evidence ;
+    pq:evidenceText """Essa barreira, chamada de trapa, pode ser uma rocha impermeável, como uma camada de sal.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Petróleo do Pré-Sal | SGB""" ;
+    pq:fromSource src:s_q100_2 .
+q:q100 pq:hasEvidence evid:ev_q100_2 .
+evid:ev_q100_2 pq:supportsQuestion q:q100 .
+
+evid:ev_q100_3 a pq:Evidence ;
+    pq:evidenceText """A 'trapa é a característica estratigráfica ou estrutural, que garante a justaposição do reservatório e selo de tal forma que os hidrocarbonetos permanecem presos no subsolo, em vez de fugir (devido à sua natural flutuabilidade) e se perderem.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q100_2 .
+q:q100 pq:hasEvidence evid:ev_q100_3 .
+evid:ev_q100_3 pq:supportsQuestion q:q100 .

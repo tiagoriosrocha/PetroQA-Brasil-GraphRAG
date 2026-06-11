@@ -1,0 +1,175 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q048 a pq:Question ;
+    pq:hasQuestionText """Que relação entre composição, propriedade e função geológica pode ser inferida a partir de reservatório?""" ;
+    pq:hasInferenceType """composicional_petrofisica""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q048 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_reservatorios_carbonaticos_b1962a a geocore:GeologicalObject ;
+    rdfs:label """reservatórios carbonáticos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q048 pq:mentionsEntity ent:e_reservatorios_carbonaticos_b1962a .
+
+ent:e_carbonatos_cdf3bc a geocore:AmountOfRock ;
+    rdfs:label """carbonatos""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q048 pq:mentionsEntity ent:e_carbonatos_cdf3bc .
+
+ent:e_carbonaticas_8d4c1d a geocore:AmountOfRock ;
+    rdfs:label """carbonáticas""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q048 pq:mentionsEntity ent:e_carbonaticas_8d4c1d .
+
+ent:e_estratigrafia_b6dd76 a geocore:EarthMaterial ;
+    rdfs:label """estratigrafia""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q048 pq:mentionsEntity ent:e_estratigrafia_b6dd76 .
+
+ent:e_dentre_9188fc a geocore:EarthMaterial ;
+    rdfs:label """Dentre""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+q:q048 pq:mentionsEntity ent:e_dentre_9188fc .
+
+res:path_q048_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q048 pq:hasReasoningStep res:path_q048_step_1 .
+
+res:path_q048_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorios_carbonaticos_b1962a .
+q:q048 pq:hasReasoningStep res:path_q048_step_2 .
+
+res:path_q048_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonatos_cdf3bc .
+q:q048 pq:hasReasoningStep res:path_q048_step_3 .
+
+res:path_q048_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_carbonaticas_8d4c1d .
+q:q048 pq:hasReasoningStep res:path_q048_step_4 .
+
+res:path_q048_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_estratigrafia_b6dd76 .
+q:q048 pq:hasReasoningStep res:path_q048_step_5 .
+
+ent:e_composicao_litologica_d1cf85 a geocore:EarthMaterial ;
+    rdfs:label """composição litológica""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+
+res:path_q048_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_composicao_litologica_d1cf85 .
+q:q048 pq:hasReasoningStep res:path_q048_step_6 .
+
+ent:e_propriedade_petrofisica_e5c907 a geocore:EarthMaterial ;
+    rdfs:label """propriedade petrofísica""" ;
+    pq:geoCoreClass geocore:EarthMaterial .
+
+res:path_q048_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_propriedade_petrofisica_e5c907 .
+q:q048 pq:hasReasoningStep res:path_q048_step_7 .
+
+res:path_q048_step_1 pq:nextStep res:path_q048_step_2 .
+
+res:path_q048_step_2 pq:nextStep res:path_q048_step_3 .
+
+res:path_q048_step_3 pq:nextStep res:path_q048_step_4 .
+
+res:path_q048_step_4 pq:nextStep res:path_q048_step_5 .
+
+res:path_q048_step_5 pq:nextStep res:path_q048_step_6 .
+
+res:path_q048_step_6 pq:nextStep res:path_q048_step_7 .
+
+q:q048 pq:hasReasoningStart res:path_q048_step_1 ;
+    pq:hasReasoningEnd res:path_q048_step_7 .
+
+res:relation_q048_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """is_composed_of_or_related_to""" ;
+    pq:relationTail ent:e_reservatorios_carbonaticos_b1962a .
+ent:e_reservatorio_5ab1e2 rel:is_composed_of_or_related_to ent:e_reservatorios_carbonaticos_b1962a .
+q:q048 pq:hasRelation res:relation_q048_1 .
+
+res:relation_q048_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorios_carbonaticos_b1962a ;
+    pq:relationLabel """has_property""" ;
+    pq:relationTail ent:e_carbonatos_cdf3bc .
+ent:e_reservatorios_carbonaticos_b1962a rel:has_property ent:e_carbonatos_cdf3bc .
+q:q048 pq:hasRelation res:relation_q048_2 .
+
+res:relation_q048_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonatos_cdf3bc ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_carbonaticas_8d4c1d .
+ent:e_carbonatos_cdf3bc rel:supports_function ent:e_carbonaticas_8d4c1d .
+q:q048 pq:hasRelation res:relation_q048_3 .
+
+res:relation_q048_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_carbonaticas_8d4c1d ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_estratigrafia_b6dd76 .
+ent:e_carbonaticas_8d4c1d rel:supports_function ent:e_estratigrafia_b6dd76 .
+q:q048 pq:hasRelation res:relation_q048_4 .
+
+res:relation_q048_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_estratigrafia_b6dd76 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_composicao_litologica_d1cf85 .
+ent:e_estratigrafia_b6dd76 rel:supports_function ent:e_composicao_litologica_d1cf85 .
+q:q048 pq:hasRelation res:relation_q048_5 .
+
+res:relation_q048_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_composicao_litologica_d1cf85 ;
+    pq:relationLabel """supports_function""" ;
+    pq:relationTail ent:e_propriedade_petrofisica_e5c907 .
+ent:e_composicao_litologica_d1cf85 rel:supports_function ent:e_propriedade_petrofisica_e5c907 .
+q:q048 pq:hasRelation res:relation_q048_6 .
+
+src:s_q048_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/22""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q048_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q048_1 a pq:Evidence ;
+    pq:evidenceText """Dentre estes o arcabouço estrutural complexo, a ocorrência de rochas ígneas intercaladas aos reservatórios carbonáticos e a presença de hidrocarboneto com alto de teor de CO2.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Mero: caracterização dos reservatórios e desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q048_1 .
+q:q048 pq:hasEvidence evid:ev_q048_1 .
+evid:ev_q048_1 pq:supportsQuestion q:q048 .
+
+evid:ev_q048_2 a pq:Evidence ;
+    pq:evidenceText """A existência de uma rocha reservatório (tipicamente, arenitos e calcários fraturados) é determinada através de uma combinação de estudos regionais (i.e. análises de outros poços na área), estratigrafia e sedimentologia (para quantificar o padrão e a extensão da sedimentação) e interpretação sísmica.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q048_2 .
+q:q048 pq:hasEvidence evid:ev_q048_2 .
+evid:ev_q048_2 pq:supportsQuestion q:q048 .

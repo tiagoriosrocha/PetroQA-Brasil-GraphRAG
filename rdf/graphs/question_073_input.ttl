@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q073 a pq:Question ;
+    pq:hasQuestionText """Que interpretação espacial pode ser obtida ao conectar Bacia de Santos com Bacia de Campos?""" ;
+    pq:hasInferenceType """espacial""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_bacia_de_santos_564a2f a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Santos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_bacia_de_santos_564a2f .
+
+ent:e_bacia_de_campos_2a27b8 a geocore:GeologicalObject ;
+    rdfs:label """Bacia de Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_bacia_de_campos_2a27b8 .
+
+ent:e_bacia_do_espirito_santo_ee79ca a geocore:GeologicalObject ;
+    rdfs:label """Bacia do Espírito Santo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_bacia_do_espirito_santo_ee79ca .
+
+ent:e_pre_sal_535e0b a geocore:AmountOfRock ;
+    rdfs:label """pré-sal""" ;
+    pq:geoCoreClass geocore:AmountOfRock .
+q:q073 pq:mentionsEntity ent:e_pre_sal_535e0b .
+
+ent:e_bacia_4de25b a geocore:GeologicalObject ;
+    rdfs:label """Bacia""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_bacia_4de25b .
+
+ent:e_campos_827360 a geocore:GeologicalObject ;
+    rdfs:label """Campos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_campos_827360 .
+
+ent:e_espirito_0d6498 a geocore:GeologicalObject ;
+    rdfs:label """Espírito""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_espirito_0d6498 .
+
+ent:e_alto_2c90bb a geocore:GeologicalObject ;
+    rdfs:label """Alto""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_alto_2c90bb .
+
+ent:e_vitoria_609757 a geocore:GeologicalObject ;
+    rdfs:label """Vitória""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q073 pq:mentionsEntity ent:e_vitoria_609757 .
+
+res:path_q073_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_santos_564a2f .
+q:q073 pq:hasReasoningStep res:path_q073_step_1 .
+
+res:path_q073_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_de_campos_2a27b8 .
+q:q073 pq:hasReasoningStep res:path_q073_step_2 .
+
+res:path_q073_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_do_espirito_santo_ee79ca .
+q:q073 pq:hasReasoningStep res:path_q073_step_3 .
+
+res:path_q073_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_pre_sal_535e0b .
+q:q073 pq:hasReasoningStep res:path_q073_step_4 .
+
+res:path_q073_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_bacia_4de25b .
+q:q073 pq:hasReasoningStep res:path_q073_step_5 .
+
+ent:e_posicao_espacial_1a96fd a geocore:GeologicalObject ;
+    rdfs:label """posição espacial""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q073_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_posicao_espacial_1a96fd .
+q:q073 pq:hasReasoningStep res:path_q073_step_6 .
+
+ent:e_relacao_entre_unidades_4596b3 a geocore:GeologicalAge ;
+    rdfs:label """relação entre unidades""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+
+res:path_q073_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_entre_unidades_4596b3 .
+q:q073 pq:hasReasoningStep res:path_q073_step_7 .
+
+res:path_q073_step_1 pq:nextStep res:path_q073_step_2 .
+
+res:path_q073_step_2 pq:nextStep res:path_q073_step_3 .
+
+res:path_q073_step_3 pq:nextStep res:path_q073_step_4 .
+
+res:path_q073_step_4 pq:nextStep res:path_q073_step_5 .
+
+res:path_q073_step_5 pq:nextStep res:path_q073_step_6 .
+
+res:path_q073_step_6 pq:nextStep res:path_q073_step_7 .
+
+q:q073 pq:hasReasoningStart res:path_q073_step_1 ;
+    pq:hasReasoningEnd res:path_q073_step_7 .
+
+res:relation_q073_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_santos_564a2f ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_bacia_de_campos_2a27b8 .
+ent:e_bacia_de_santos_564a2f rel:is_related_to ent:e_bacia_de_campos_2a27b8 .
+q:q073 pq:hasRelation res:relation_q073_1 .
+
+res:relation_q073_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_de_campos_2a27b8 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_bacia_do_espirito_santo_ee79ca .
+ent:e_bacia_de_campos_2a27b8 rel:supports ent:e_bacia_do_espirito_santo_ee79ca .
+q:q073 pq:hasRelation res:relation_q073_2 .
+
+res:relation_q073_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_do_espirito_santo_ee79ca ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_pre_sal_535e0b .
+ent:e_bacia_do_espirito_santo_ee79ca rel:indicates ent:e_pre_sal_535e0b .
+q:q073 pq:hasRelation res:relation_q073_3 .
+
+res:relation_q073_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_pre_sal_535e0b ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_bacia_4de25b .
+ent:e_pre_sal_535e0b rel:indicates ent:e_bacia_4de25b .
+q:q073 pq:hasRelation res:relation_q073_4 .
+
+res:relation_q073_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_bacia_4de25b ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_posicao_espacial_1a96fd .
+ent:e_bacia_4de25b rel:indicates ent:e_posicao_espacial_1a96fd .
+q:q073 pq:hasRelation res:relation_q073_5 .
+
+res:relation_q073_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_posicao_espacial_1a96fd ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_entre_unidades_4596b3 .
+ent:e_posicao_espacial_1a96fd rel:indicates ent:e_relacao_entre_unidades_4596b3 .
+q:q073 pq:hasRelation res:relation_q073_6 .
+
+src:s_q073_1 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Bacia_de_Campos""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q073_2 a pq:Source ;
+    pq:sourceURL """https://comunicabaciadesantos.petrobras.com.br/pre-sal-bacia-de-santos""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q073_1 a pq:Evidence ;
+    pq:evidenceText """Seu limite, ao sul, com a Bacia de Santos ocorre no Alto de Cabo Frio; ao norte, com a Bacia do Espírito Santo, ocorre no Alto de Vitória.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Bacia de Campos | Wikipédia""" ;
+    pq:fromSource src:s_q073_1 .
+q:q073 pq:hasEvidence evid:ev_q073_1 .
+evid:ev_q073_1 pq:supportsQuestion q:q073 .
+
+evid:ev_q073_2 a pq:Evidence ;
+    pq:evidenceText """O pré-sal é uma formação rochosa localizada no subsolo da costa brasileira, que se estende entre os estados de Santa Catarina e Espírito Santo, atingindo uma área de cerca de 800 quilômetros de extensão por 200 quilômetros de largura.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Pré-sal Bacia de Santos | Comunica Bacia de Santos | Petrobras""" ;
+    pq:fromSource src:s_q073_2 .
+q:q073 pq:hasEvidence evid:ev_q073_2 .
+evid:ev_q073_2 pq:supportsQuestion q:q073 .

@@ -1,0 +1,190 @@
+@prefix pq: <https://w3id.org/petroqa-brasil/ontology/> .
+@prefix res: <https://w3id.org/petroqa-brasil/resource/> .
+@prefix q: <https://w3id.org/petroqa-brasil/question/> .
+@prefix ent: <https://w3id.org/petroqa-brasil/entity/> .
+@prefix evid: <https://w3id.org/petroqa-brasil/evidence/> .
+@prefix src: <https://w3id.org/petroqa-brasil/source/> .
+@prefix rel: <https://w3id.org/petroqa-brasil/relation/> .
+@prefix geocore: <https://www.inf.ufrgs.br/bdi/ontologies/geocore.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+q:q043 a pq:Question ;
+    pq:hasQuestionText """Como as evidências disponíveis permitem reinterpretar a pergunta: Por que os modelos geocelulares são relevantes para interpretar o Campo de Búzios?""" ;
+    pq:hasInferenceType """interpretativa""" ;
+    pq:hasDifficulty """hard""" ;
+    pq:hasRetrievalScope """multi_document""" ;
+    pq:requiresOntology "true"^^xsd:boolean ;
+    pq:hasNumHops "4"^^xsd:integer .
+
+ent:e_campo_de_buzios_1022dd a geocore:GeologicalObject ;
+    rdfs:label """Campo de Búzios""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_campo_de_buzios_1022dd .
+
+ent:e_reservatorio_5ab1e2 a geocore:GeologicalObject ;
+    rdfs:label """reservatório""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_reservatorio_5ab1e2 .
+
+ent:e_hidrocarbonetos_8c8a35 a geocore:GeologicalObject ;
+    rdfs:label """hidrocarbonetos""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_hidrocarbonetos_8c8a35 .
+
+ent:e_fluido_957529 a geocore:EarthFluid ;
+    rdfs:label """fluido""" ;
+    pq:geoCoreClass geocore:EarthFluid .
+q:q043 pq:mentionsEntity ent:e_fluido_957529 .
+
+ent:e_porosidade_410e62 a geocore:GeologicalAge ;
+    rdfs:label """porosidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q043 pq:mentionsEntity ent:e_porosidade_410e62 .
+
+ent:e_permeabilidade_2c45cd a geocore:GeologicalAge ;
+    rdfs:label """permeabilidade""" ;
+    pq:geoCoreClass geocore:GeologicalAge .
+q:q043 pq:mentionsEntity ent:e_permeabilidade_2c45cd .
+
+ent:e_campo_b09788 a geocore:GeologicalObject ;
+    rdfs:label """Campo""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_campo_b09788 .
+
+ent:e_eles_ab05b4 a geocore:GeologicalObject ;
+    rdfs:label """Eles""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_eles_ab05b4 .
+
+ent:e_para_b8ac40 a geocore:GeologicalObject ;
+    rdfs:label """Para""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+q:q043 pq:mentionsEntity ent:e_para_b8ac40 .
+
+res:path_q043_step_1 a pq:ReasoningStep ;
+    pq:pathPosition "1"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_campo_de_buzios_1022dd .
+q:q043 pq:hasReasoningStep res:path_q043_step_1 .
+
+res:path_q043_step_2 a pq:ReasoningStep ;
+    pq:pathPosition "2"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_reservatorio_5ab1e2 .
+q:q043 pq:hasReasoningStep res:path_q043_step_2 .
+
+res:path_q043_step_3 a pq:ReasoningStep ;
+    pq:pathPosition "3"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_hidrocarbonetos_8c8a35 .
+q:q043 pq:hasReasoningStep res:path_q043_step_3 .
+
+res:path_q043_step_4 a pq:ReasoningStep ;
+    pq:pathPosition "4"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_fluido_957529 .
+q:q043 pq:hasReasoningStep res:path_q043_step_4 .
+
+res:path_q043_step_5 a pq:ReasoningStep ;
+    pq:pathPosition "5"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_porosidade_410e62 .
+q:q043 pq:hasReasoningStep res:path_q043_step_5 .
+
+ent:e_evidencia_textual_ca7e0c a geocore:GeologicalObject ;
+    rdfs:label """evidência textual""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q043_step_6 a pq:ReasoningStep ;
+    pq:pathPosition "6"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_evidencia_textual_ca7e0c .
+q:q043 pq:hasReasoningStep res:path_q043_step_6 .
+
+ent:e_relacao_geologica_3434ab a geocore:GeologicalObject ;
+    rdfs:label """relação geológica""" ;
+    pq:geoCoreClass geocore:GeologicalObject .
+
+res:path_q043_step_7 a pq:ReasoningStep ;
+    pq:pathPosition "7"^^xsd:integer ;
+    pq:hasReasoningStep ent:e_relacao_geologica_3434ab .
+q:q043 pq:hasReasoningStep res:path_q043_step_7 .
+
+res:path_q043_step_1 pq:nextStep res:path_q043_step_2 .
+
+res:path_q043_step_2 pq:nextStep res:path_q043_step_3 .
+
+res:path_q043_step_3 pq:nextStep res:path_q043_step_4 .
+
+res:path_q043_step_4 pq:nextStep res:path_q043_step_5 .
+
+res:path_q043_step_5 pq:nextStep res:path_q043_step_6 .
+
+res:path_q043_step_6 pq:nextStep res:path_q043_step_7 .
+
+q:q043 pq:hasReasoningStart res:path_q043_step_1 ;
+    pq:hasReasoningEnd res:path_q043_step_7 .
+
+res:relation_q043_1 a pq:RelationAssertion ;
+    pq:relationHead ent:e_campo_de_buzios_1022dd ;
+    pq:relationLabel """is_related_to""" ;
+    pq:relationTail ent:e_reservatorio_5ab1e2 .
+ent:e_campo_de_buzios_1022dd rel:is_related_to ent:e_reservatorio_5ab1e2 .
+q:q043 pq:hasRelation res:relation_q043_1 .
+
+res:relation_q043_2 a pq:RelationAssertion ;
+    pq:relationHead ent:e_reservatorio_5ab1e2 ;
+    pq:relationLabel """supports""" ;
+    pq:relationTail ent:e_hidrocarbonetos_8c8a35 .
+ent:e_reservatorio_5ab1e2 rel:supports ent:e_hidrocarbonetos_8c8a35 .
+q:q043 pq:hasRelation res:relation_q043_2 .
+
+res:relation_q043_3 a pq:RelationAssertion ;
+    pq:relationHead ent:e_hidrocarbonetos_8c8a35 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_fluido_957529 .
+ent:e_hidrocarbonetos_8c8a35 rel:indicates ent:e_fluido_957529 .
+q:q043 pq:hasRelation res:relation_q043_3 .
+
+res:relation_q043_4 a pq:RelationAssertion ;
+    pq:relationHead ent:e_fluido_957529 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_porosidade_410e62 .
+ent:e_fluido_957529 rel:indicates ent:e_porosidade_410e62 .
+q:q043 pq:hasRelation res:relation_q043_4 .
+
+res:relation_q043_5 a pq:RelationAssertion ;
+    pq:relationHead ent:e_porosidade_410e62 ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_evidencia_textual_ca7e0c .
+ent:e_porosidade_410e62 rel:indicates ent:e_evidencia_textual_ca7e0c .
+q:q043 pq:hasRelation res:relation_q043_5 .
+
+res:relation_q043_6 a pq:RelationAssertion ;
+    pq:relationHead ent:e_evidencia_textual_ca7e0c ;
+    pq:relationLabel """indicates""" ;
+    pq:relationTail ent:e_relacao_geologica_3434ab .
+ent:e_evidencia_textual_ca7e0c rel:indicates ent:e_relacao_geologica_3434ab .
+q:q043 pq:hasRelation res:relation_q043_6 .
+
+src:s_q043_1 a pq:Source ;
+    pq:sourceURL """https://publicacoesup.petrobras.com.br/peld/catalog/book/12/chapter/23""" ;
+    pq:sourceIndex "1"^^xsd:integer .
+
+src:s_q043_2 a pq:Source ;
+    pq:sourceURL """https://pt.wikipedia.org/wiki/Geologia_do_petr%C3%B3leo""" ;
+    pq:sourceIndex "2"^^xsd:integer .
+
+evid:ev_q043_1 a pq:Evidence ;
+    pq:evidenceText """Para que esses depósitos sejam representados, são construídos modelos geocelulares faciológicos e petrofísicos, que posteriormente são empregados na simulação de fluxo de fluidos e avaliação volumétrica.""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Campo de Búzios: a jornada desde a caracterização dos reservatórios ao início do desenvolvimento da produção | Universidade Petrobras""" ;
+    pq:fromSource src:s_q043_1 .
+q:q043 pq:hasEvidence evid:ev_q043_1 .
+evid:ev_q043_1 pq:supportsQuestion q:q043 .
+
+evid:ev_q043_2 a pq:Evidence ;
+    pq:evidenceText """A análise de reservatórios no mais simples nível requer uma avaliação da sua porosidade (para calcular o volume de hidrocarbonetos in situ) e sua permeabilidade (para calcular quão facilmente os hidrocarbonetos irão fluir fora dele).""" ;
+    pq:evidenceRole """evidence""" ;
+    pq:sourceTitle """Geologia do petróleo | Wikipédia""" ;
+    pq:fromSource src:s_q043_2 .
+q:q043 pq:hasEvidence evid:ev_q043_2 .
+evid:ev_q043_2 pq:supportsQuestion q:q043 .
