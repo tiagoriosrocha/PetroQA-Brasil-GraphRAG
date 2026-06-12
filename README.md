@@ -1,10 +1,11 @@
-# PetroQA-Brasil
+# PetroQA-Brasil GraphRAG
 
 **PetroQA-Brasil** is a Portuguese Question Answering (QA) dataset for **petroleum geoscience**, designed to evaluate evidence-grounded and relation-aware reasoning in Retrieval-Augmented Generation (RAG), GraphRAG, and ontology-enriched retrieval pipelines.
 
 The dataset focuses on questions that require more than direct span extraction. Each item is designed to connect geological entities, properties, processes, and roles, such as sedimentary basins, stratigraphic units, lithologies, reservoirs, source rocks, seals, faults, depositional environments, and petrophysical properties.
 
-Repository: <https://github.com/tiagoriosrocha/PetroQA-Brasil>
+Repository (v.1 - RAG): <https://github.com/tiagoriosrocha/PetroQA-Brasil>
+Repository (v.2 - GraphRAG): <https://github.com/tiagoriosrocha/PetroQA-Brasil-GraphRAG>
 
 ---
 
